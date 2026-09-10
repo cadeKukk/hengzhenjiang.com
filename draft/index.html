@@ -634,6 +634,12 @@
   html[data-lang="zh"] b,html[data-lang="zh"] .btn,html[data-lang="zh"] summary,html[data-lang="zh"] .edu-card h3,html[data-lang="zh"] .cols h4{font-weight:500}
   html[data-lang="zh"] p,html[data-lang="zh"] .acc-body{line-height:1.7}
   html[data-lang="zh"] .hero .lead{line-height:1.6}
+
+  /* ---------- typed heading ---------- */
+  .typed .caret{display:inline-block;width:2px;height:.85em;margin-left:2px;vertical-align:-.08em;background:currentColor;animation:caret 1s steps(1) infinite}
+  .typed .caret.done{animation:none;opacity:0;transition:opacity .4s}
+  @keyframes caret{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.typed .caret{display:none}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 
@@ -871,7 +877,7 @@
 </section>
 
 <section id="projects" class="wrap proj-sec" aria-label="Projects">
-  <div class="sec-head rv"><div class="eyebrow">Projects</div><h2 class="h2 left">Two projects, <span>one from a course and one on my own.</span></h2></div>
+  <div class="sec-head rv"><div class="eyebrow">Projects</div><h2 class="h2 left typed" id="typed-projects">Two projects, <span>one from a course and one on my own.</span></h2></div>
 
   <article class="case">
     <div class="copy rv">
@@ -1028,6 +1034,7 @@
     document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setLang === lang)));
     try { localStorage.setItem('lang', lang); } catch (e) {}
     root.classList.remove('i18n-pending');
+    document.dispatchEvent(new Event('langchange'));
   };
   document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => { if (b.dataset.setLang !== LANG) applyLang(b.dataset.setLang); }));
   const ease = t => 1 - Math.pow(1 - t, 3);
@@ -1358,6 +1365,38 @@
     document.getElementById('vlb-x').addEventListener('click', closeVideo);
     document.getElementById('vlb-bg').addEventListener('click', closeVideo);
     addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+  }
+
+  // ---------- typed heading: types out when it scrolls into view, resets when it leaves ----------
+  const typedEl = document.getElementById('typed-projects');
+  if (typedEl && !RM) {
+    let timers = [], caret = null, active = false;
+    const textNodes = () => { const w = document.createTreeWalker(typedEl, NodeFilter.SHOW_TEXT); const out = []; let n; while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n); return out; };
+    const stop = () => { timers.forEach(clearTimeout); timers = []; if (caret) { caret.remove(); caret = null; } };
+    const reset = () => { stop(); active = false; textNodes().forEach(n => { if (n.__full !== undefined) n.nodeValue = n.__full; }); typedEl.style.minHeight = ''; };
+    const type = () => {
+      stop(); active = true;
+      const nodes = textNodes();
+      typedEl.style.minHeight = typedEl.getBoundingClientRect().height + 'px';   // keep layout while empty
+      nodes.forEach(n => { n.__full = n.nodeValue; n.nodeValue = ''; });
+      caret = document.createElement('i'); caret.className = 'caret'; caret.setAttribute('aria-hidden', 'true');
+      let ni = 0, ci = 0, t = 250;
+      const step = () => {
+        if (ni >= nodes.length) { caret.classList.add('done'); timers.push(setTimeout(() => { if (caret) caret.remove(); typedEl.style.minHeight = ''; }, 900)); return; }
+        const n = nodes[ni], full = n.__full, chars = [...full];
+        n.parentNode.insertBefore(caret, n.nextSibling);
+        if (ci < chars.length) {
+          const ch = chars[ci++]; n.nodeValue = chars.slice(0, ci).join('');
+          const cjk = /[\u3000-\u9fff\uff00-\uffef]/.test(ch), pause = /[,.，。]/.test(ch);
+          timers.push(setTimeout(step, pause ? 320 : cjk ? 70 : 38));
+        } else { ni++; ci = 0; timers.push(setTimeout(step, 120)); }
+      };
+      timers.push(setTimeout(step, t));
+    };
+    const tio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? (!active && type()) : reset()), {threshold: 0.6});
+    tio.observe(typedEl);
+    // language toggle while visible: retype in the new language
+    document.addEventListener('langchange', () => { if (!active) return; reset(); const r = typedEl.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) type(); });
   }
   applyLang(LANG);
 })();
