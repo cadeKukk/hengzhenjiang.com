@@ -256,7 +256,7 @@
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
   /* ---------- motion layer ---------- */
-  .js .rv{opacity:0;transform:translateY(18px);filter:blur(6px);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease)}
+  .js .rv{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity .55s var(--ease),transform .6s var(--ease),filter .55s var(--ease)}
   .js .rv.in{opacity:1;transform:none;filter:none}
   .hint{display:inline-flex;align-items:center;gap:8px;margin-top:44px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);animation:rise .6s var(--ease) .55s both}
   .hint .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.35);font-size:11px;animation:bob 1.8s ease-in-out infinite}
@@ -1102,18 +1102,23 @@
 
   // ---------- scroll reveal (reversible) ----------
   const rv = [...document.querySelectorAll('.rv')];
-  const setState = (el, on) => {
+  const setState = (el, on, delay = 0) => {
     if (el.classList.contains('in') === on) return;
-    const sibs = [...el.parentElement.children].filter(c => c.classList.contains('rv'));
-    const idx = sibs.indexOf(el);
-    // enter staggered forward; leave staggered in reverse so groups fold away the way they unfolded
-    el.style.transitionDelay = (on ? idx * 90 : (sibs.length - 1 - idx) * 60) + 'ms';
+    el.style.transitionDelay = delay + 'ms';
     el.classList.toggle('in', on);
     if (el.classList.contains('mock')) on ? playMock(el) : resetMock(el);
   };
   if (RM) rv.forEach(el => { el.classList.add('in'); if (el.classList.contains('mock')) playMock(el); });
   else {
-    const io = new IntersectionObserver(es => es.forEach(e => setState(e.target, e.isIntersecting)), {threshold:0, rootMargin:'-8% 0px -8% 0px'});
+    // stagger by arrival order in the direction of travel (top-down when scrolling down, bottom-up when
+    // scrolling up), capped so a fast scroll never leaves elements waiting; leaving is immediate
+    let lastY = window.scrollY, dir = 1;
+    addEventListener('scroll', () => { const y = window.scrollY; if (y !== lastY) dir = y < lastY ? -1 : 1; lastY = y; }, {passive:true});
+    const io = new IntersectionObserver(es => {
+      const entering = es.filter(e => e.isIntersecting).sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top) * dir);
+      entering.forEach((e, i) => setState(e.target, true, Math.min(i, 4) * 70));
+      es.forEach(e => { if (!e.isIntersecting) setState(e.target, false, 0); });
+    }, {threshold: 0, rootMargin: '12% 0px 12% 0px'});
     rv.forEach(el => io.observe(el));
   }
 
