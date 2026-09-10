@@ -259,7 +259,7 @@
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
   /* ---------- motion layer ---------- */
-  .js .rv{opacity:0;transform:translateY(18px);filter:blur(6px);transition:opacity .7s var(--ease),transform .75s var(--ease),filter .7s var(--ease)}
+  .js .rv{opacity:0;transform:translateY(18px);filter:blur(6px);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease)}
   .js .rv.in{opacity:1;transform:none;filter:none}
   .hint{display:inline-flex;align-items:center;gap:8px;margin-top:44px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);animation:rise .6s var(--ease) .55s both}
   .hint .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.35);font-size:11px;animation:bob 1.8s ease-in-out infinite}
@@ -1125,7 +1125,7 @@
       const entering = es.filter(e => e.isIntersecting).sort((a, b) => (a.boundingClientRect.top - b.boundingClientRect.top) * dir);
       entering.forEach((e, i) => setState(e.target, true, Math.min(i, 5) * 100));
       es.forEach(e => { if (!e.isIntersecting) setState(e.target, false, 0); });
-    }, {threshold: 0, rootMargin: '3% 0px 3% 0px'});
+    }, {threshold: 0, rootMargin: '0px'});
     rv.forEach(el => io.observe(el));
   }
 
