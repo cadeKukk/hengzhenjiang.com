@@ -1372,17 +1372,18 @@
   if (typedEl && !RM) {
     let timers = [], caret = null, active = false;
     const textNodes = () => { const w = document.createTreeWalker(typedEl, NodeFilter.SHOW_TEXT); const out = []; let n; while ((n = w.nextNode())) if (n.nodeValue.trim()) out.push(n); return out; };
-    const stop = () => { timers.forEach(clearTimeout); timers = []; if (caret) { caret.remove(); caret = null; } };
-    const reset = () => { stop(); active = false; textNodes().forEach(n => { if (n.__full !== undefined) n.nodeValue = n.__full; }); typedEl.style.minHeight = ''; };
+    let nodes = [];
+    const stop = () => { timers.forEach(clearTimeout); timers = []; if (caret) { caret.remove(); caret = null; } typedEl.style.minHeight = ''; active = false; };
+    const reset = () => { stop(); nodes.forEach(n => { if (n.__full !== undefined) n.nodeValue = n.__full; }); };
     const type = () => {
       stop(); active = true;
-      const nodes = textNodes();
+      nodes = textNodes();
       typedEl.style.minHeight = typedEl.getBoundingClientRect().height + 'px';   // keep layout while empty
       nodes.forEach(n => { n.__full = n.nodeValue; n.nodeValue = ''; });
       caret = document.createElement('i'); caret.className = 'caret'; caret.setAttribute('aria-hidden', 'true');
       let ni = 0, ci = 0, t = 250;
       const step = () => {
-        if (ni >= nodes.length) { caret.classList.add('done'); timers.push(setTimeout(() => { if (caret) caret.remove(); typedEl.style.minHeight = ''; }, 900)); return; }
+        if (ni >= nodes.length) { caret.classList.add('done'); timers.push(setTimeout(() => { if (caret) { caret.remove(); caret = null; } typedEl.style.minHeight = ''; }, 900)); return; }
         const n = nodes[ni], full = n.__full, chars = [...full];
         n.parentNode.insertBefore(caret, n.nextSibling);
         if (ci < chars.length) {
@@ -1396,7 +1397,8 @@
     const tio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? (!active && type()) : reset()), {threshold: 0.6});
     tio.observe(typedEl);
     // language toggle while visible: retype in the new language
-    document.addEventListener('langchange', () => { if (!active) return; reset(); const r = typedEl.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) type(); });
+    // language switched: the dictionary has already rewritten the text nodes, so drop the old run and type the new text
+    document.addEventListener('langchange', () => { if (!active) return; stop(); const r = typedEl.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) type(); });
   }
   applyLang(LANG);
 })();
