@@ -1,0 +1,14 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Local-only material, not part of the deployable site:
+# clone of the previous GitHub Pages site (original photo library)
+current-site/
+# working documents and inbound files
+next steps/
+
+# Vercel project link (machine-specific)
+.vercel/

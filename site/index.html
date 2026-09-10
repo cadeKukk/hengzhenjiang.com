@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>(function(){var l='zh';try{l=localStorage.getItem('lang')||'zh'}catch(e){}document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l==='zh'?'zh-CN':'en';document.documentElement.classList.add('i18n-pending');setTimeout(function(){document.documentElement.classList.remove('i18n-pending')},1500)})()</script>
+<title>Hengzhen Jiang</title>
+<meta name="description" content="Hengzhen Jiang — audience research, data analysis, international growth, and practical AI systems. MEng Financial Technology, Duke University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300..800&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --surface:#f5f5f2; --raised:#fbfbf8; --sunk:#e7e7e3; --paper:#fafaf7;
+    --ink-base:38,35,35;
+    --ink:rgba(var(--ink-base),.8); --ink-strong:rgba(var(--ink-base),.9); --ink-muted:rgba(var(--ink-base),.7); --ink-faint:rgba(var(--ink-base),.5); --ink-ghost:rgba(var(--ink-base),.32);
+    --line:#dee2de; --line-pill:#e3e3e0; --line-soft:rgba(32,32,32,.1);
+    --blue:#1a6fd1; --sky:#46abfd; --sky-2:#86ceff; --green:#34a853; --blossom:#f0ddd5; --leaf:#dff0d5; --clay:#a76451;
+    --sans:"Onest","TT Neoris","PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --w:1100px; --r:8px; --r-card:12px;
+    --btn-shadow:0 2px 3px rgba(0,0,0,.06), inset 0 0 .36px 1.5px rgba(255,255,255,.35), inset 0 2px 0 #fff;
+    --ease:cubic-bezier(.23,1,.32,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--surface);color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:450;line-height:1.4;letter-spacing:.15px;-webkit-font-smoothing:antialiased;padding-inline:0}
+  h1,h2,h3,h4{margin:0;font-weight:400;letter-spacing:.28px;text-wrap:balance;color:var(--ink-strong)}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit}
+  img{max-width:100%;display:block}
+  .faint{color:var(--ink-faint)}
+  .wrap{max-width:var(--w);margin-inline:auto;padding-inline:24px}
+  .eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .idx{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-ghost)}
+  section{padding-block:88px}
+  @media (min-width:900px){section{padding-block:112px}}
+  :focus-visible{outline:2px solid #5d86ee;outline-offset:2px;border-radius:4px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;height:41px;padding-inline:14px;border-radius:var(--r);font-size:15px;font-weight:460;cursor:pointer;white-space:nowrap;transition:background .14s ease-out,transform .14s ease-out,border-color .14s ease-out;border:1px solid var(--line-soft);background:var(--surface);color:var(--ink-strong);box-shadow:var(--btn-shadow)}
+  .btn:hover{background:#ededea}
+  .btn-dark{background:linear-gradient(180deg,#4f4f4f 0%,rgba(32,32,32,.85) 100%);border-color:#383838;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 1px 2px rgba(0,0,0,.2),0 0 0 3px rgba(32,32,32,.06)}
+  .btn-dark:hover{background:linear-gradient(180deg,#5a5a5a 0%,rgba(32,32,32,.92) 100%)}
+  .btn-glass{background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08));border-color:rgba(255,255,255,.35);color:#fff;backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.08)}
+  .btn-glass:hover{background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.14))}
+
+  /* header */
+  .hdr{position:fixed;inset:0 0 auto 0;z-index:200;height:56px;transition:background .12s,box-shadow .12s,border-color .12s;border-bottom:1px solid rgba(232,231,230,0)}
+  .hdr.solid{background:rgba(245,245,242,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:#e8e7e6;box-shadow:0 1px 0 rgba(255,255,255,.6) inset}
+  .hdr .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{font-size:17px;font-weight:500;letter-spacing:.1px;color:#fff;transition:color .12s}
+  .hdr.solid .brand{color:var(--ink-strong)}
+  .navpill{display:none;align-items:center;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .12s,border-color .12s}
+  .hdr.solid .navpill{background:transparent;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .navpill a{padding:7px 12px;border-radius:999px;font-size:14px;font-weight:410;color:rgba(255,255,255,.92);transition:background .15s,color .12s}
+  .navpill a:hover{background:rgba(255,255,255,.18)}
+  .hdr.solid .navpill a{color:var(--ink)}
+  .hdr.solid .navpill a:hover{background:var(--sunk)}
+  @media (min-width:760px){.navpill{display:inline-flex}}
+  .hdr .btn{height:34px;padding-inline:12px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden;background:#2e6bb5;padding-block:120px 160px}
+  .hero-bg{position:absolute;inset:0;background-image:url("assets/duke-px.png");background-size:cover;background-position:center 30%;image-rendering:pixelated;image-rendering:crisp-edges;transform:scale(1.02)}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,40,80,.62) 0%,rgba(15,40,80,.38) 45%,rgba(15,40,80,.08) 100%),linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 70%,rgba(20,40,70,.35))}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr;gap:40px;align-items:center;width:100%}
+  .hero h1{font-size:44px;line-height:1.02;color:#fff;max-width:20ch;letter-spacing:-.01em;filter:drop-shadow(0 1px 3px rgba(0,0,0,.18));animation:rise .6s var(--ease) .1s both}
+  @media (min-width:500px){.hero h1{font-size:54px}}
+  @media (min-width:900px){.hero h1{font-size:68px}}
+  .hero .lead{margin-top:20px;font-size:17px;line-height:1.45;color:rgba(255,255,255,.88);max-width:46ch;animation:rise .6s var(--ease) .25s both;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
+  .hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;animation:rise .6s var(--ease) .4s both}
+  .hero .eyebrow{color:rgba(255,255,255,.7);margin-bottom:18px;animation:rise .6s var(--ease) 0s both}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:translateY(0)}}
+  .pxstrip{position:absolute;left:0;right:0;bottom:-1px;height:92px;display:block;width:100%}
+
+  /* proof strip */
+  .proof{padding-block:56px 0}
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:660px;margin-inline:auto}
+  @media (min-width:700px){.tiles{grid-template-columns:repeat(4,1fr)}}
+  .tile{height:48px;display:grid;place-items:center;background:var(--paper);border:1px solid #ebebe8;border-radius:var(--r);font-size:14px;font-weight:460;color:var(--ink-muted);letter-spacing:.1px}
+  .tile small{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-ghost);margin-left:6px}
+
+  /* statement */
+  .statement{text-align:center;padding-block:72px 56px}
+  .h2{font-size:28px;line-height:1.15;max-width:22ch;margin-inline:auto}
+  @media (min-width:767px){.h2{font-size:32px}}
+  @media (min-width:1000px){.h2{font-size:40px}}
+  .h2 span{color:var(--ink-faint)}
+  .orb{margin:48px auto 0;max-width:980px;background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:2px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 1px 2px rgba(0,0,0,.04)}
+  .orb-in{border-radius:14px;background:linear-gradient(180deg,#fdfdfb,#f8f8f5);display:grid;grid-template-columns:1fr;min-height:360px}
+  @media (min-width:860px){.orb-in{grid-template-columns:1.25fr 1fr}}
+  .orb-map{position:relative;padding:20px;overflow:hidden}
+  .orb-map svg{width:100%;height:auto;display:block}
+  .orb-side{border-top:1px solid var(--line);padding:18px 20px;display:flex;flex-direction:column;gap:10px;text-align:left;background:rgba(255,255,255,.4)}
+  @media (min-width:860px){.orb-side{border-top:0;border-left:1px solid var(--line)}}
+  .orb-side .row{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.6);border:1px solid var(--line-soft);box-shadow:0 1px 0 rgba(255,255,255,.8) inset;font-size:13px;line-height:1.4}
+  .orb-side .row .k{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-ghost);white-space:nowrap;padding-top:2px}
+  .orb-side .row b{font-weight:500;color:var(--ink-strong)}
+  .chip{display:inline-block;font-size:10px;font-weight:430;padding:1px 6px;border-radius:3px;border:.7px solid rgba(32,32,32,.12);background:rgba(32,32,32,.05);color:var(--ink-muted);vertical-align:middle;margin-left:6px}
+  .chip.ok{background:var(--leaf);border-color:#c9e3ba;color:#2f6f3a}
+  .chip.run{background:#dbe9fb;border-color:#bcd3f3;color:#1f5fb0}
+  .three{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px;text-align:left;font-size:13.5px;line-height:1.45;color:var(--ink-muted);max-width:980px;margin-inline:auto}
+  @media (min-width:760px){.three{grid-template-columns:repeat(3,1fr);gap:32px}}
+  .three b{font-weight:500;color:var(--ink-strong)}
+
+  /* case blocks */
+  .case{display:grid;grid-template-columns:1fr;gap:36px;align-items:start;padding-block:56px}
+  @media (min-width:900px){.case{grid-template-columns:5fr 7fr;gap:48px;padding-block:72px}.case.flip .copy{order:2}.case.flip .mock{order:1}}
+  .case .copy h3{font-size:30px;line-height:1.12;margin-top:12px;max-width:19ch}
+  @media (min-width:1000px){.case .copy h3{font-size:36px}}
+  .case .copy h3 span{color:var(--ink-faint)}
+  .case .copy p{margin-top:14px;max-width:430px;font-size:14.5px;line-height:1.45;color:var(--ink)}
+  .acc{margin-top:22px;display:flex;flex-direction:column;gap:6px;max-width:430px}
+  details{border:1px solid var(--line-soft);background:rgba(255,255,255,.6);border-radius:10px;box-shadow:0 1px 0 rgba(255,255,255,.8) inset;transition:background .2s,border-color .2s,transform .2s}
+  details:hover{background:#fff;border-color:rgba(32,32,32,.2);transform:translateY(-1px)}
+  details[open]{background:#fff}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 12px;font-size:13.5px;font-weight:500;color:var(--ink-strong)}
+  summary::-webkit-details-marker{display:none}
+  summary .idx{width:22px}
+  summary .plus{margin-left:auto;width:12px;height:12px;position:relative;opacity:.45;transition:transform .2s}
+  summary .plus::before,summary .plus::after{content:"";position:absolute;background:currentColor;left:50%;top:50%;transform:translate(-50%,-50%)}
+  summary .plus::before{width:12px;height:1.2px}summary .plus::after{width:1.2px;height:12px}
+  details[open] summary .plus{transform:rotate(90deg)}
+  details[open] summary .plus::after{opacity:0}
+  .acc-body{padding:0 12px 12px 46px;font-size:13px;line-height:1.5;color:var(--ink-muted)}
+  .acc-body ul{margin:0;padding-left:16px}
+  .acc-body li+li{margin-top:4px}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:4px 8px;border-radius:4px;background:rgba(32,32,32,.05);border:.7px solid rgba(32,32,32,.1);color:var(--ink-muted)}
+
+  /* mockup cards */
+  .mock{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:2px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 1px 2px rgba(0,0,0,.04);position:sticky;top:80px}
+  .mock-in{border-radius:12px;background:linear-gradient(180deg,#fdfdfb,#f9f9f6);padding:18px 20px 20px;font-size:12px;color:var(--ink-muted)}
+  .mock-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:14px}
+  .mock-top .t{font-weight:500;color:var(--ink-strong);font-size:12.5px}
+  .mock-top .idx{font-size:9.5px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+  .kpi .l{font-size:10.5px;color:var(--ink-faint);margin-bottom:3px}
+  .kpi .v{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink-strong);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .kpi .d{margin-top:4px;font-size:10px;display:inline-flex;align-items:center;gap:4px;color:#2f7d3d}
+  .kpi .d.n{color:var(--ink-faint)}
+  .kpi .d::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.8}
+  .mock-cap{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:11.5px;line-height:1.45;color:var(--ink-faint)}
+  .table{width:100%;border-collapse:collapse;font-size:11px}
+  .table th{text-align:left;font-weight:500;color:var(--ink-faint);font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:0 0 8px;border-bottom:1px solid var(--line)}
+  .table td{padding:8px 0;border-bottom:1px solid rgba(222,226,222,.6);color:var(--ink);vertical-align:middle}
+  .table td:last-child,.table th:last-child{text-align:right}
+  .table tr:last-child td{border-bottom:0}
+  .steps{display:grid;grid-template-columns:1fr;gap:8px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:10px 12px;border-radius:9px;border:1px solid var(--line-soft);background:rgba(255,255,255,.7)}
+  .step .idx{padding-top:2px}
+  .step b{display:block;font-weight:500;color:var(--ink-strong);font-size:12px}
+  .step span{font-size:11.5px;color:var(--ink-faint)}
+  .seg{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 16px}
+  .seg span{font-size:11px;padding:4px 9px;border-radius:999px;border:1px solid var(--line-soft);background:#fff;color:var(--ink)}
+  .seg span.hot{background:var(--blossom);border-color:#e6c8bd;color:#7a4638}
+  .ab{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .ab .v{padding:10px 12px;border-radius:9px;border:1px solid var(--line-soft);background:#fff}
+  .ab .v .l{font-size:10px;color:var(--ink-faint)}
+  .ab .v .n{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--ink-strong);margin-top:2px}
+  .ab .v .bar{height:6px;border-radius:3px;background:var(--sunk);margin-top:8px;overflow:hidden}
+  .ab .v .bar i{display:block;height:100%;background:var(--green);border-radius:3px}
+  .ab .v.win{border-color:#c9e3ba;background:#f6fbf2}
+  .funnel{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+  .funnel div{height:16px;border-radius:3px;background:linear-gradient(90deg,#9cc6f5,#7db1ec);display:flex;align-items:center;padding-inline:8px;font-family:var(--mono);font-size:9.5px;color:#123b6b}
+
+  /* skills wordsearch */
+  .skills{text-align:center;position:relative}
+  .skills h2{font-size:28px;line-height:1.15}
+  .skills .sub{margin-top:10px;font-size:13px;color:var(--ink-faint);max-width:44ch;margin-inline:auto}
+  .grid-wrap{margin:44px auto 0;position:relative;display:inline-block;max-width:100%;overflow-x:auto;padding:12px}
+  .ws{display:grid;grid-template-columns:repeat(16,1.6em);grid-auto-rows:1.6em;font-family:var(--mono);font-size:15px;color:var(--ink-ghost);position:relative;user-select:none;font-weight:400}
+  @media (min-width:700px){.ws{font-size:17px}}
+  .ws span{display:grid;place-items:center;transition:color .3s,font-weight .3s}
+  .ws span.on{color:var(--ink-strong);font-weight:500}
+  .ws .ring{position:absolute;border:1.5px solid #5d86ee;border-radius:999px;pointer-events:none;transition:all .55s var(--ease);opacity:0;box-shadow:0 0 0 3px rgba(93,134,238,.12)}
+  .ws .ring.show{opacity:1}
+  .cols{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 32px;max-width:980px;margin:56px auto 0;text-align:left}
+  @media (min-width:900px){.cols{grid-template-columns:repeat(4,1fr)}}
+  .cols h4{font-size:13.5px;font-weight:500;margin:8px 0 6px}
+  .cols p{font-size:13px;line-height:1.5;color:var(--ink-faint)}
+
+  /* lab band */
+  .band{position:relative;background:var(--blue);color:#fff;padding-block:120px 140px;overflow:hidden;margin-top:24px}
+  .band .pxtop,.band .pxbot{position:absolute;left:0;right:0;height:64px;width:100%;display:block}
+  .band .pxtop{top:-1px}.band .pxbot{bottom:-1px}
+  .band .wrap{position:relative;text-align:center}
+  .band .eyebrow{color:rgba(255,255,255,.6)}
+  .band h2{color:#fff;font-size:30px;line-height:1.12;margin-top:14px}
+  @media (min-width:1000px){.band h2{font-size:40px}}
+  .band h2 span{color:rgba(255,255,255,.55)}
+  .band .lead{margin:16px auto 0;max-width:52ch;font-size:14px;color:rgba(255,255,255,.82);line-height:1.5}
+  .band .facts{display:flex;flex-wrap:wrap;justify-content:center;gap:0 28px;margin-top:26px;font-size:12px;color:rgba(255,255,255,.62)}
+  .band .facts span{padding:6px 0}
+  .band .facts span.live{color:#fff;border-left:2px solid #fff;padding-left:10px}
+  .agent{margin:36px auto 0;max-width:720px;background:rgba(251,251,248,.92);border-radius:14px;padding:2px;box-shadow:0 0 0 4px rgba(255,255,255,.18),0 20px 50px rgba(0,30,80,.25);color:var(--ink);text-align:left}
+  .agent-in{border-radius:12px;background:linear-gradient(180deg,#fdfdfb,#f6f6f3);display:grid;grid-template-columns:1fr}
+  @media (min-width:700px){.agent-in{grid-template-columns:230px 1fr}}
+  .agent-form{padding:16px;border-bottom:1px solid var(--line);font-size:11px}
+  @media (min-width:700px){.agent-form{border-bottom:0;border-right:1px solid var(--line)}}
+  .agent-form .l{color:var(--ink-faint);margin:10px 0 4px;font-size:10px}
+  .agent-form .f{border:1px solid var(--line);border-radius:6px;padding:7px 9px;background:#fff;color:var(--ink-strong);font-size:11.5px}
+  .agent-form .f.ta{min-height:64px;color:var(--ink-faint)}
+  .agent-form b{font-weight:500;color:var(--ink-strong);font-size:12px}
+  .flow{padding:20px 16px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;position:relative}
+  .node{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04);min-width:150px}
+  .node i{width:18px;height:18px;border-radius:5px;background:var(--sunk);display:grid;place-items:center;font-style:normal;font-size:10px;font-family:var(--mono);color:var(--ink-faint)}
+  .node b{display:block;font-weight:500;color:var(--ink-strong)}
+  .node span{font-size:9.5px;color:var(--ink-faint)}
+  .pill{font-size:9.5px;padding:3px 7px;border-radius:5px;background:#202020;color:#fff}
+  .vline{width:1px;height:12px;background:var(--line)}
+  .subs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;max-width:480px;margin-top:4px}
+  .subs .node{min-width:0;padding:6px 8px}
+  .status{margin-top:22px;font-size:11.5px;color:rgba(255,255,255,.7);display:inline-flex;align-items:center;gap:8px}
+  .status i{width:7px;height:7px;border-radius:50%;background:#bbf451;box-shadow:0 0 0 3px rgba(187,244,81,.25)}
+
+  /* field notes */
+  .notes{text-align:center}
+  .notes h2{font-size:28px;line-height:1.15}
+  .notes .sub{margin-top:10px;font-size:13px;color:var(--ink-faint);max-width:40ch;margin-inline:auto}
+  .note{position:relative;text-align:left}
+  .note .card{background:var(--raised);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 1px 2px rgba(0,0,0,.04);transition:transform .25s var(--ease),box-shadow .25s}
+  .note:hover .card{transform:translateY(-3px);box-shadow:0 0 0 4px rgba(232,231,230,.32),0 12px 28px rgba(0,0,0,.08)}
+  .note .card h4{font-size:14px;font-weight:440;line-height:1.25;color:var(--ink-strong)}
+  .note .card h4 span{display:block;color:var(--ink-faint)}
+  .note .card hr{border:0;border-top:1px solid var(--line);margin:12px 0 10px}
+  .note .card .idx{display:block;margin-bottom:6px}
+  .note .card img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+  .note .card .ft{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink-ghost);text-transform:uppercase}
+  .notes .more{margin-top:36px;display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-faint)}
+  .notes .more i{font-style:normal;padding:2px 6px;border-radius:4px;background:var(--sunk);font-family:var(--mono);font-size:9.5px}
+
+  /* footer */
+  footer{position:relative;padding:80px 0 120px;overflow:hidden}
+  .foot{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+  @media (min-width:860px){.foot{grid-template-columns:1fr 340px;gap:80px}}
+  .foot h2{font-size:30px;line-height:1.15}
+  @media (min-width:1000px){.foot h2{font-size:36px}}
+  .foot h2 span{color:var(--ink-faint)}
+  .foot .row{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:28px;font-size:12.5px;align-items:center}
+  .foot .row .k{color:var(--ink-ghost)}
+  .foot .row a{color:var(--ink);padding:2px 6px;margin-left:-6px;border-radius:6px;position:relative;transition:background .2s}
+  .foot .row a:hover{background:rgba(231,231,227,.8)}
+  .foot .links{display:grid;grid-template-columns:repeat(2,minmax(0,150px));gap:6px 20px;margin-top:22px;font-size:12.5px}
+  .foot .links a{color:var(--ink);padding:2px 6px;margin-left:-6px;border-radius:6px;transition:background .2s;width:max-content}
+  .foot .links a:hover{background:rgba(231,231,227,.8)}
+  .foot .fine{margin-top:26px;font-size:10.5px;color:var(--ink-ghost);line-height:1.7}
+  .holo{position:relative;border-radius:14px;padding:2px;background:rgba(251,251,248,.8);box-shadow:inset 0 2px 0 #fff,0 0 0 4px rgba(232,231,230,.32),0 20px 40px rgba(0,0,0,.08);transform-style:preserve-3d;transition:transform .12s ease-out;will-change:transform}
+  .holo-in{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4}
+  .holo img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
+  .holo .glare{position:absolute;inset:0;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.35),rgba(255,255,255,0) 55%);mix-blend-mode:soft-light;pointer-events:none}
+  .holo .txt{position:absolute;left:0;right:0;bottom:0;padding:18px 16px 16px;background:linear-gradient(180deg,rgba(20,20,20,0),rgba(20,20,20,.55));color:#fff}
+  .holo .txt p{font-size:15px;line-height:1.3;max-width:20ch;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  .holo .txt p span{color:rgba(255,255,255,.7)}
+  .holo .txt .btn{margin-top:12px;height:34px;font-size:13px}
+  .grass{position:absolute;left:0;right:0;bottom:0;height:75px;width:100%;display:block}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+  /* ---------- motion layer ---------- */
+  .js .rv{opacity:0;transform:translateY(18px);filter:blur(6px);transition:opacity .75s var(--ease),transform .75s var(--ease),filter .75s var(--ease)}
+  .js .rv.in{opacity:1;transform:none;filter:none}
+  .hint{display:inline-flex;align-items:center;gap:8px;margin-top:44px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);animation:rise .6s var(--ease) .55s both}
+  .hint .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.35);font-size:11px;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+  .hero-bg{transform:scale(1.08);will-change:transform}
+  .hero .wrap{will-change:transform,opacity}
+  .navpill a.active{background:rgba(255,255,255,.22);color:#fff}
+  .hdr.solid .navpill a.active{background:var(--sunk);color:var(--ink-strong)}
+
+  /* orbit diagram */
+  .orb-map svg g{transform-box:fill-box;transform-origin:center;opacity:0;transform:scale(.8);transition:opacity .5s var(--ease),transform .7s var(--ease)}
+  .orb.in svg g{opacity:1;transform:scale(1)}
+  .orb.in svg g:nth-of-type(1){transition-delay:.15s}.orb.in svg g:nth-of-type(2){transition-delay:.3s}.orb.in svg g:nth-of-type(3){transition-delay:.38s}.orb.in svg g:nth-of-type(4){transition-delay:.46s}.orb.in svg g:nth-of-type(5){transition-delay:.54s}.orb.in svg g:nth-of-type(6){transition-delay:.66s}.orb.in svg g:nth-of-type(7){transition-delay:.72s}.orb.in svg g:nth-of-type(8){transition-delay:.78s}.orb.in svg g:nth-of-type(9){transition-delay:.84s}
+  .orb-map svg .ln{stroke-dasharray:3 4;animation:flow 1.4s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-14}}
+  .orb-map svg g[data-key]{cursor:pointer}
+  .orb-map svg g[data-key] rect{transition:stroke .2s,fill .2s}
+  .orb-map svg g.hi rect,.orb-map svg g:hover rect{stroke:#5d86ee;fill:#f3f7ff}
+  .orb-side .row{opacity:0;transform:translateX(10px);transition:opacity .5s var(--ease),transform .6s var(--ease),background .2s,border-color .2s;cursor:default}
+  .orb.in .orb-side .row{opacity:1;transform:none}
+  .orb.in .orb-side .row:nth-child(1){transition-delay:.5s}.orb.in .orb-side .row:nth-child(2){transition-delay:.6s}.orb.in .orb-side .row:nth-child(3){transition-delay:.7s}.orb.in .orb-side .row:nth-child(4){transition-delay:.8s}
+  .orb-side .row.hi,.orb-side .row:hover{background:#fff;border-color:rgba(93,134,238,.5)}
+
+  /* feature importance chart */
+  .bars{display:flex;flex-direction:column;gap:5px}
+  .br{display:grid;grid-template-columns:132px 1fr 36px;gap:10px;align-items:center;font-family:var(--mono);font-size:10.5px;padding:2px 6px;margin:-2px -6px;border-radius:5px;transition:background .15s}
+  .br:hover{background:rgba(32,32,32,.045)}
+  .br .n{color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .br .t{height:10px;position:relative}
+  .br .b{position:absolute;left:0;top:0;height:100%;width:var(--w);border-radius:2px;background:linear-gradient(90deg,#8fb7ea,#6d9fe0);box-shadow:inset 0 1px 0 rgba(255,255,255,.4);transform-origin:left center;transform:scaleX(0);transition:transform .9s var(--ease),background .4s}
+  .br .b.top{background:linear-gradient(90deg,#8fb7ea,#6d9fe0)}
+  .in .br .b{transform:scaleX(1)}
+  .in .br .b.top{background:linear-gradient(90deg,#e0846d,#d05f43);transition-delay:0s,1.1s}
+  .br .v{color:var(--ink-faint);font-variant-numeric:tabular-nums;text-align:right}
+  .br:hover .b{filter:brightness(1.06)}
+  .br .b::after{content:"";position:absolute;right:0;top:-2px;bottom:-2px;width:2px;border-radius:1px;background:rgba(255,255,255,.7);opacity:0;transition:opacity .2s}
+  .br:hover .b::after{opacity:1}
+  .replay{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:5px;border:1px solid var(--line-soft);background:#fff;color:var(--ink-faint);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .replay:hover{background:var(--surface);color:var(--ink-strong);border-color:rgba(32,32,32,.2)}
+  .replay .ico{display:inline-block;transition:transform .5s var(--ease)}
+  .replay:hover .ico{transform:rotate(-180deg)}
+  .kpi .v{font-variant-numeric:tabular-nums}
+
+  /* other mock cards */
+  .seg span{opacity:0;transform:scale(.92);transition:opacity .45s var(--ease),transform .55s var(--ease)}
+  .in .seg span{opacity:1;transform:none}
+  .in .seg span:nth-child(1){transition-delay:.25s}.in .seg span:nth-child(2){transition-delay:.33s}.in .seg span:nth-child(3){transition-delay:.41s}.in .seg span:nth-child(4){transition-delay:.49s}
+  .step{opacity:0;transform:translateX(-10px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  .in .step{opacity:1;transform:none}
+  .in .step:nth-child(1){transition-delay:.55s}.in .step:nth-child(2){transition-delay:.7s}.in .step:nth-child(3){transition-delay:.85s}
+  .table tbody tr{opacity:0;transform:translateX(-8px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  .in .table tbody tr{opacity:1;transform:none}
+  .in .table tbody tr:nth-child(1){transition-delay:.35s}.in .table tbody tr:nth-child(2){transition-delay:.55s}.in .table tbody tr:nth-child(3){transition-delay:.75s}.in .table tbody tr:nth-child(4){transition-delay:.95s}
+  .chip.run{animation:pulse 1.6s ease-out infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,95,176,.35)}70%{box-shadow:0 0 0 5px rgba(31,95,176,0)}100%{box-shadow:0 0 0 0 rgba(31,95,176,0)}}
+  .ab .v .bar i{transform-origin:left center;transform:scaleX(0);transition:transform 1s var(--ease) .35s}
+  .in .ab .v .bar i{transform:scaleX(1)}
+  .funnel div{transform-origin:left center;transform:scaleX(0);transition:transform .8s var(--ease)}
+  .in .funnel div{transform:scaleX(1)}
+  .in .funnel div:nth-child(1){transition-delay:.5s}.in .funnel div:nth-child(2){transition-delay:.65s}.in .funnel div:nth-child(3){transition-delay:.8s}
+
+  /* accordions */
+  .acc-body{overflow:hidden}
+  details .plus{transition:transform .25s var(--ease)}
+
+  /* word search */
+  .ws span{cursor:default;border-radius:4px}
+  .ws span:hover{color:var(--ink-strong);background:rgba(32,32,32,.04)}
+  .ws span.word{cursor:pointer}
+
+  /* agent flow */
+  .flow > *{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  .flow .vline{transform-origin:top center;transform:scaleY(0)}
+  .agent.in .flow > *{opacity:1;transform:none}
+  .agent.in .flow > :nth-child(1){transition-delay:.3s}.agent.in .flow > :nth-child(2){transition-delay:.45s}.agent.in .flow > :nth-child(3){transition-delay:.55s}.agent.in .flow > :nth-child(4){transition-delay:.7s}.agent.in .flow > :nth-child(5){transition-delay:.8s}.agent.in .flow > :nth-child(6){transition-delay:.9s}.agent.in .flow > :nth-child(7){transition-delay:1s}
+  .agent.in .subs .node:nth-child(2){transition-delay:1.1s}.agent.in .subs .node:nth-child(3){transition-delay:1.2s}
+  .subs .node{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+  .agent.in .subs .node{opacity:1;transform:none}
+  .agent.in .subs .node:nth-child(1){transition-delay:1s}
+  .status i{animation:blink 2s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+  /* notes + footer tilt */
+  @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;filter:none}.in .br .b,.br .b,.seg span,.step,.table tbody tr,.ab .v .bar i,.funnel div,.flow > *,.subs .node,.orb-map svg g,.orb-side .row{opacity:1;transform:none}}
+
+  /* ---------- field notes marquee ---------- */
+  .notes{text-align:center;padding-inline:0;overflow:hidden}
+  .notes .sub{margin-bottom:8px}
+  .marquee{position:relative;padding:18px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .track{display:flex;gap:24px;width:max-content;padding-inline:12px;animation:mq-left 75s linear infinite;will-change:transform}
+  .marquee[data-dir="right"] .track{animation-name:mq-right;animation-duration:85s}
+  @keyframes mq-left{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 12px))}}
+  @keyframes mq-right{from{transform:translateX(calc(-50% - 12px))}to{transform:translateX(0)}}
+  .marquee:hover .track,.lb-open .track{animation-play-state:paused}
+  .note{appearance:none;background:none;border:0;padding:6px 6px 0;margin:0;font:inherit;color:inherit;text-align:left;width:250px;flex:none;cursor:zoom-in;transition:opacity .3s}
+  .note.dim{opacity:.35}
+  .note .card{transition:transform .25s var(--ease),box-shadow .25s}
+  .note:hover .card{transform:translateY(-4px);box-shadow:0 0 0 4px rgba(232,231,230,.32),0 14px 30px rgba(0,0,0,.09)}
+  .note:focus-visible{outline:none}
+  .note:focus-visible .card{box-shadow:0 0 0 2px #5d86ee,0 0 0 4px rgba(232,231,230,.32)}
+  .note .card img{transition:transform .5s var(--ease)}
+  .note:hover .card img{transform:scale(1.03)}
+  .note .card .imgwrap{overflow:hidden;border-radius:4px;aspect-ratio:4/3}
+  .note .card .imgwrap img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:0}
+  @media (prefers-reduced-motion:reduce){
+    .marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+    .track{animation:none;width:auto}
+  }
+
+  /* ---------- lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:400;display:grid;place-items:center;padding:24px}
+  .lb[hidden]{display:none}
+  .lb-bg{position:absolute;inset:0;background:rgba(38,35,35,.55);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);opacity:0;transition:opacity .35s ease}
+  .lb.on .lb-bg{opacity:1}
+  .lb-fig{position:relative;margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;max-width:min(92vw,1100px);pointer-events:none}
+  .lb-frame{position:relative;background:var(--raised);padding:8px;border-radius:12px;box-shadow:0 0 0 4px rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.35);transform-origin:top left;pointer-events:auto;will-change:transform}
+  .lb-frame img{display:block;max-width:calc(92vw - 16px);max-height:min(76vh,820px);width:auto;height:auto;border-radius:6px;background:var(--sunk)}
+  .lb-frame.swap img{animation:lb-swap .35s var(--ease)}
+  @keyframes lb-swap{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+  .lb-cap{display:flex;gap:14px;align-items:baseline;color:rgba(255,255,255,.9);font-size:13.5px;opacity:0;transform:translateY(6px);transition:opacity .3s ease .15s,transform .4s var(--ease) .15s;pointer-events:auto}
+  .lb.on .lb-cap{opacity:1;transform:none}
+  .lb-cap .idx{color:rgba(255,255,255,.55);font-size:10px}
+  .lb-x,.lb-nav{position:absolute;z-index:2;appearance:none;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#fff;width:40px;height:40px;border-radius:50%;font:inherit;font-size:18px;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);opacity:0;transition:opacity .3s ease .2s,background .15s,transform .15s}
+  .lb.on .lb-x,.lb.on .lb-nav{opacity:1}
+  .lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.24)}
+  .lb-nav:active{transform:scale(.94)}
+  .lb-x{top:18px;right:18px;font-size:22px;line-height:1}
+  .lb-prev{left:18px;top:50%;margin-top:-20px}
+  .lb-next{right:18px;top:50%;margin-top:-20px}
+  @media (max-width:640px){.lb-nav{top:auto;bottom:18px;margin-top:0}.lb-prev{left:calc(50% - 52px)}.lb-next{right:calc(50% - 52px)}.lb-frame img{max-height:62vh}}
+  body.lb-open{overflow:hidden}
+
+  /* ---------- phone layout ---------- */
+  @media (max-width:640px){
+    section{padding-block:64px}
+    .hdr{height:52px}
+    .hero{min-height:560px;padding-block:104px 128px}
+    .hero h1{font-size:clamp(38px,11.5vw,46px)}
+    .hero .lead{font-size:15.5px;max-width:34ch}
+    .hero .cta .btn{flex:1 1 auto;justify-content:center}
+    .hint{margin-top:32px}
+    .proof{padding-block:40px 0}
+    .tile{height:44px;font-size:13px}
+    .statement{padding-block:52px 36px}
+    .h2{font-size:26px}
+    .orb{margin-top:32px;border-radius:12px}
+    .orb-map{padding:10px 8px}
+    .orb-side{padding:14px 12px}
+    .three{gap:16px;margin-top:22px}
+    .case{gap:24px;padding-block:40px}
+    .case .copy h3{font-size:27px}
+    .case .copy p{font-size:14px}
+    .mock{position:static}
+    .mock-in{padding:14px 14px 16px}
+    .mock-top{flex-wrap:wrap;gap:6px 10px}
+    .kpis{gap:8px;margin-bottom:12px}
+    .kpi .l{font-size:10px}
+    .kpi .v{font-size:16px}
+    .kpi .d{font-size:9.5px}
+    .br{grid-template-columns:1fr auto;grid-template-areas:"n v" "t t";gap:3px 8px;padding:4px 6px;margin:0 -6px}
+    .br .n{grid-area:n;font-size:10px}
+    .br .t{grid-area:t;height:8px}
+    .br .v{grid-area:v;font-size:10px}
+    .bars{gap:4px}
+    .replay{padding:3px 7px}
+    .table th:nth-child(2),.table td:nth-child(2){display:none}
+    .table td{padding:7px 0}
+    .seg span{font-size:10.5px;padding:3px 8px}
+    .step{padding:9px 10px}
+    .ab{gap:8px}
+    .ab .v .n{font-size:14px}
+    .skills h2,.notes h2{font-size:26px}
+    .grid-wrap{padding:6px 0;margin-top:32px}
+    .ws{font-size:12px;grid-template-columns:repeat(16,1.55em);grid-auto-rows:1.55em}
+    .cols{grid-template-columns:1fr;gap:22px;margin-top:40px}
+    .band{padding-block:92px 108px;margin-top:8px}
+    .band h2{font-size:27px}
+    .band .facts{flex-direction:column;align-items:center;gap:2px}
+    .band .facts span.live{border-left:0;border-bottom:2px solid #fff;padding-left:0;padding-bottom:6px;margin-top:4px}
+    .agent{margin-top:28px;border-radius:12px}
+    .subs{grid-template-columns:1fr;max-width:260px}
+    .marquee{padding:12px 0}
+    .track{gap:16px}
+    .note{width:224px}
+    footer{padding:56px 0 100px}
+    .foot{gap:32px}
+    .foot h2{font-size:27px}
+    .foot .links{grid-template-columns:1fr 1fr;gap:6px 12px}
+    .holo{max-width:300px;width:100%;margin-inline:auto}
+    .lb{padding:16px}
+    .lb-x{top:12px;right:12px;width:36px;height:36px}
+  }
+  @media (max-width:380px){
+    .ws{font-size:11px;grid-template-columns:repeat(16,1.5em);grid-auto-rows:1.5em}
+    .hero .cta .btn{width:100%}
+  }
+
+  /* ---------- header: résumé menu ---------- */
+  .hdr-right{display:flex;align-items:center;gap:8px}
+  .rmenu{position:relative}
+  .rbtn{gap:6px}
+  .chev{font-size:9px;opacity:.75;transition:transform .2s var(--ease)}
+  .rmenu.open .chev{transform:rotate(180deg)}
+  .hdr.solid .btn-glass{background:var(--surface);border-color:var(--line-soft);color:var(--ink-strong);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:var(--btn-shadow)}
+  .hdr.solid .btn-glass:hover{background:#ededea}
+  .rdrop{position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:var(--raised);border:1px solid var(--line);border-radius:10px;padding:6px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 16px 40px rgba(0,0,0,.12);display:flex;flex-direction:column;gap:2px;transform-origin:top right;animation:drop .22s var(--ease)}
+  .rdrop[hidden]{display:none}
+  @keyframes drop{from{opacity:0;transform:translateY(-6px) scale(.98)}}
+  .rdrop .rh{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-ghost);padding:6px 10px 4px}
+  .rdrop a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:9px 10px;border-radius:7px;font-size:14px;color:var(--ink-strong);transition:background .15s}
+  .rdrop a:hover{background:var(--sunk)}
+  .rdrop small{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-faint);padding:2px 6px;border-radius:4px;border:1px solid var(--line)}
+
+  /* ---------- section heads ---------- */
+  .sec-head{margin-bottom:36px}
+  .sec-head .h2.left{text-align:left;margin-inline:0;margin-top:12px;max-width:24ch}
+  .statement{padding-block:64px 24px}
+
+  /* ---------- education ---------- */
+  .edu-sec{padding-block:32px 16px}
+  .edu-sec .sec-head{margin-bottom:16px}
+  .edu{display:grid;grid-template-columns:1fr;gap:14px}
+  @media (min-width:760px){.edu{grid-template-columns:1fr 1fr;gap:20px}}
+  .edu-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:18px 20px 20px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 1px 2px rgba(0,0,0,.04)}
+  .edu-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+  .edu-top .chip{margin-left:0}
+  .edu-card h3{font-size:20px;line-height:1.2}
+  .edu-card .deg{margin-top:5px;font-size:14.5px;color:var(--ink)}
+  .edu-card .meta{margin-top:6px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-faint)}
+  .edu-card .det{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--ink-muted)}
+
+  /* ---------- timeline ---------- */
+  #timeline{padding-block:56px 40px}
+  .tl{list-style:none;margin:0;padding:0}
+  .tl-year,.tl-item{display:grid;grid-template-columns:150px 24px 1fr;gap:0 16px}
+  .tl-year{align-items:center;padding:14px 0 6px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-ghost)}
+  .tl-year > span:first-child{text-align:right}
+  .tl-year .tl-rail{align-self:stretch;min-height:24px}
+  .tl-when{text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-faint);padding-top:18px;white-space:nowrap}
+  .tl-rail{position:relative}
+  .tl-rail::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line);transform:translateX(-.5px)}
+  .tl-rail i{position:absolute;left:50%;top:20px;width:9px;height:9px;border-radius:50%;background:var(--raised);border:1.5px solid var(--ink-faint);transform:translateX(-50%);box-shadow:0 0 0 3px var(--surface)}
+  .tl-item[data-kind="project"] .tl-rail i{border-color:#5d86ee;background:#dbe9fb}
+  .tl-item[data-kind="education"] .tl-rail i{border-color:#c98f80;background:var(--blossom)}
+  .tl-item[data-kind="internship"] .tl-rail i{border-color:#5d9a5d;background:var(--leaf)}
+  .tl-body{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:start;margin:4px 0;padding:12px 14px 13px;border-radius:10px;border:1px solid var(--line-soft);background:rgba(255,255,255,.6);box-shadow:0 1px 0 rgba(255,255,255,.8) inset;color:inherit;transition:background .2s,border-color .2s,transform .2s}
+  .tl-body:hover{background:#fff;border-color:rgba(32,32,32,.2);transform:translateY(-1px)}
+  .tl-body b{font-weight:500;color:var(--ink-strong);font-size:14.5px;line-height:1.3}
+  .tl-body .sub{font-size:12.5px;color:var(--ink-faint);line-height:1.4}
+  .tl-body .when-inline{display:none;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-faint);grid-column:1/-1;margin-bottom:2px}
+  .tl-kind{grid-column:2;grid-row:1/3;font-size:10px;font-weight:430;padding:2px 7px;border-radius:4px;border:.7px solid;white-space:nowrap}
+  .tl-item[data-kind="project"] .tl-kind{background:#dbe9fb;border-color:#bcd3f3;color:#1f5fb0}
+  .tl-item[data-kind="education"] .tl-kind{background:var(--blossom);border-color:#e6c8bd;color:#7a4638}
+  .tl-item[data-kind="internship"] .tl-kind{background:var(--leaf);border-color:#c9e3ba;color:#2f6f3a}
+
+  /* ---------- work / projects ---------- */
+  .work-sec,.proj-sec{padding-top:64px}
+  .skills{padding-top:72px}
+  .role{margin-top:10px;font-size:13px;color:var(--ink-faint);max-width:430px;line-height:1.45}
+  .case .copy .role + p{margin-top:12px}
+  .subs.four{grid-template-columns:repeat(4,minmax(0,1fr));max-width:560px}
+  .subs.four .node{flex-direction:column;align-items:flex-start;gap:6px;padding:8px}
+  .agent.in .subs.four .node:nth-child(4){transition-delay:1.3s}
+
+  /* ---------- creator collaborations strip ---------- */
+  .collabs{margin:-16px 0 40px;padding-top:22px;border-top:1px solid var(--line)}
+  .collabs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:16px}
+  .collabs-head p{margin-top:8px;font-size:13px;line-height:1.5;color:var(--ink-faint);max-width:58ch}
+  .collabs-nav{display:flex;gap:6px;flex:none}
+  .collabs-nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-soft);background:var(--surface);box-shadow:var(--btn-shadow);cursor:pointer;font:inherit;font-size:14px;color:var(--ink-strong);transition:background .15s,transform .15s}
+  .collabs-nav button:hover{background:#ededea}
+  .collabs-nav button:active{transform:scale(.94)}
+  .cstrip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 16px;scrollbar-width:thin;scrollbar-color:var(--line) transparent;-webkit-overflow-scrolling:touch;margin-inline:-4px}
+  .cit{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;background:var(--raised);border:1px solid var(--line);border-radius:10px;padding:6px 6px 8px;box-shadow:0 0 0 4px rgba(232,231,230,.32),0 1px 2px rgba(0,0,0,.04);color:inherit;transition:transform .25s var(--ease),box-shadow .25s}
+  .cit:hover{transform:translateY(-3px);box-shadow:0 0 0 4px rgba(232,231,230,.32),0 12px 28px rgba(0,0,0,.08)}
+  .cit.wide{width:min(384px,78vw)}
+  .cit.sq{width:200px}
+  .cit.tall{width:150px}
+  .cthumb{position:relative;display:block;width:100%;border-radius:6px;overflow:hidden;background:var(--sunk);border:0;padding:0;cursor:pointer;appearance:none;height:250px}
+  .cit.wide .cthumb{height:auto;aspect-ratio:16/9}
+  .cthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+  .cit:hover .cthumb img{transform:scale(1.03)}
+  .cthumb .play{position:absolute;left:50%;top:50%;width:48px;height:48px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(20,20,20,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .2s var(--ease),background .2s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .cthumb .play::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  .cit:hover .play{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,20,20,.86)}
+  .cthumb.playing{cursor:default}
+  .cthumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .cbadge{position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;border-radius:4px;background:rgba(255,255,255,.88);color:var(--ink-strong);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .cit .ext{position:absolute;right:8px;top:8px;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.88);display:grid;place-items:center;font-size:11px;color:var(--ink-strong)}
+  .ccap{padding:0 4px;display:grid;gap:3px;min-width:0}
+  .ccap .cplat{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-ghost);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ccap b{font-weight:500;font-size:12.5px;color:var(--ink-strong);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .cit.x .cthumb{display:grid;place-items:center;background:#161616;color:#fff}
+  .cit.x .cthumb span.xg{font-size:34px;font-weight:600;letter-spacing:-.04em}
+
+  @media (max-width:640px){
+    .hdr .btn{height:32px;padding-inline:10px;font-size:13px}
+    .hdr-right{gap:6px}
+    .rdrop{min-width:200px}
+    .statement{padding-block:48px 16px}
+    .edu-card{padding:16px}
+    .edu-card h3{font-size:18px}
+    #timeline{padding-block:44px 24px}
+    .tl-year,.tl-item{grid-template-columns:18px 1fr;gap:0 12px}
+    .tl-year > span:first-child{order:2;text-align:left}
+    .tl-year .tl-rail{order:1}
+    .tl-year > span:last-child{display:none}
+    .tl-year{padding:10px 0 4px}
+    .tl-when{display:none}
+    .tl-body .when-inline{display:block}
+    .tl-rail i{top:16px}
+    .tl-kind{grid-row:auto;grid-column:1;justify-self:start;margin-top:6px}
+    .tl-body{grid-template-columns:1fr}
+    .collabs{margin-top:-8px}
+    .collabs-head{flex-direction:column;align-items:flex-start;gap:12px}
+    .cit.wide{width:82vw}
+    .cthumb{height:220px}
+    .subs.four{grid-template-columns:1fr 1fr;max-width:300px}
+  }
+
+  /* ---------- collaborations marquee + previews ---------- */
+  .collabs-head{margin-bottom:6px}
+  .cmq{margin-inline:calc(50% - 50vw);padding:14px 0 18px}
+  .cmq .track{gap:14px;align-items:stretch;animation-duration:120s}
+  .cit{cursor:pointer}
+  .cit.yt{position:relative}
+  .cit.yt .cthumb{cursor:pointer}
+  .cthumb .hit{position:absolute;inset:0;z-index:3;cursor:pointer}
+  .cthumb iframe{z-index:1;pointer-events:none;background:#000}
+  .cthumb .cbadge,.cthumb .play,.cthumb .ext{z-index:2}
+  .cthumb.live .play{opacity:0;transform:translate(-50%,-50%) scale(.8)}
+  .cit.yt:hover .cthumb.live .play{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .cthumb .play{transition:opacity .25s,transform .25s var(--ease),background .2s}
+  .cthumb.live::after{content:"Preview · muted";position:absolute;right:8px;bottom:8px;z-index:2;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;border-radius:4px;background:rgba(20,20,20,.7);color:#fff}
+  .cmq .cit:not(.yt) .cthumb img{animation:kb 16s ease-in-out infinite alternate}
+  .cmq .cit:not(.yt):nth-child(odd) .cthumb img{animation-duration:20s;animation-direction:alternate-reverse}
+  @keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+  .cit:focus-visible{outline:2px solid #5d86ee;outline-offset:2px}
+  .vlb-fig{width:min(92vw,1100px)}
+  .vlb-frame{width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 0 0 4px rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.4);pointer-events:auto;transform:scale(.96);opacity:0;transition:transform .45s var(--ease),opacity .3s}
+  .vlb.on .vlb-frame{transform:none;opacity:1}
+  .vlb-frame iframe{width:100%;height:100%;border:0;display:block}
+  @media (prefers-reduced-motion:reduce){.cmq .cit:not(.yt) .cthumb img{animation:none}}
+  @media (max-width:640px){.cmq{padding:10px 0 14px}.cmq .track{gap:12px}}
+
+  /* ---------- language toggle / i18n ---------- */
+  .i18n-pending body{visibility:hidden}
+  .lang{display:inline-flex;align-items:center;padding:3px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .12s,border-color .12s}
+  .lang button{appearance:none;border:0;background:transparent;font:inherit;font-size:12.5px;font-weight:460;padding:5px 9px;border-radius:999px;color:rgba(255,255,255,.75);cursor:pointer;transition:background .15s,color .15s;line-height:1}
+  .lang button[aria-pressed="true"]{background:rgba(255,255,255,.9);color:var(--ink-strong)}
+  .lang button:not([aria-pressed="true"]):hover{color:#fff}
+  .hdr.solid .lang{background:var(--sunk);border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .hdr.solid .lang button{color:var(--ink-faint)}
+  .hdr.solid .lang button[aria-pressed="true"]{background:#fff;color:var(--ink-strong);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+  .hdr.solid .lang button:not([aria-pressed="true"]):hover{color:var(--ink-strong)}
+  .hdr .btn-dark .short{display:none}
+  html[data-lang="zh"] .cthumb.live::after{content:"预览 · 静音"}
+  html[data-lang="zh"] h1,html[data-lang="zh"] h2,html[data-lang="zh"] h3{letter-spacing:0}
+  html[data-lang="zh"] .hero h1{font-weight:450}
+  html[data-lang="zh"] .eyebrow,html[data-lang="zh"] .idx{letter-spacing:.08em}
+  @media (max-width:640px){
+    .hdr .btn-dark .full{display:none}
+    .hdr .btn-dark .short{display:inline;font-size:15px;line-height:1}
+    .hdr .btn-dark{padding-inline:10px}
+    .lang button{padding:5px 7px;font-size:12px}
+    .hdr-right{gap:5px}
+  }
+
+  /* ---------- Chinese typeface: 思源宋体 for the zh version ---------- */
+  html[data-lang="zh"]{--sans:"Onest","Noto Serif SC","Songti SC","STSong","Noto Serif CJK SC",serif;--mono:"IBM Plex Mono","Noto Serif SC","Songti SC",ui-monospace,monospace}
+  html[data-lang="zh"] body{font-weight:400}
+  html[data-lang="zh"] h1,html[data-lang="zh"] h2,html[data-lang="zh"] h3{font-weight:500}
+  html[data-lang="zh"] .hero h1{font-weight:600}
+  html[data-lang="zh"] .h2 span,html[data-lang="zh"] .case .copy h3 span,html[data-lang="zh"] .band h2 span,html[data-lang="zh"] .foot h2 span,html[data-lang="zh"] .notes h2 span{font-weight:400}
+  html[data-lang="zh"] b,html[data-lang="zh"] .btn,html[data-lang="zh"] summary,html[data-lang="zh"] .edu-card h3,html[data-lang="zh"] .cols h4{font-weight:500}
+  html[data-lang="zh"] p,html[data-lang="zh"] .acc-body{line-height:1.7}
+  html[data-lang="zh"] .hero .lead{line-height:1.6}
+</style>
+<meta name="theme-color" content="#f5f5f2">
+</head>
+<body>
+
+<script>document.documentElement.classList.add("js")</script>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top">Hengzhen Jiang</a>
+    <nav class="navpill" aria-label="Sections">
+      <a href="#skills">Skills</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#notes">Notes</a><a href="#about">About</a>
+    </nav>
+    <div class="hdr-right">
+      <div class="lang" role="group" aria-label="Language / 语言">
+        <button type="button" data-set-lang="zh" aria-pressed="true" lang="zh-CN">中文</button>
+        <button type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <div class="rmenu" id="rmenu">
+        <button class="btn btn-glass rbtn" id="rbtn" type="button" aria-haspopup="menu" aria-expanded="false">Résumé <span class="chev">▾</span></button>
+        <div class="rdrop" role="menu" aria-label="Download résumé" hidden>
+          <div class="rh">Download · PDF</div>
+          <a role="menuitem" href="assets/resume/Hengzhen_Jiang_Resume_EN.pdf" download="Hengzhen_Jiang_Resume_EN.pdf">English résumé <small>EN</small></a>
+          <a role="menuitem" href="assets/resume/Hengzhen_Jiang_Resume_ZH.pdf" download="姜蘅珍_简历.pdf">中文简历 <small>ZH</small></a>
+        </div>
+      </div>
+      <a class="btn btn-dark" href="mailto:hengzhen.jiang@duke.edu" aria-label="Email"><span class="full">Get in touch</span><span class="short" aria-hidden="true">✉</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Introduction">
+  <div class="hero-bg" role="img" aria-label="Duke Chapel behind cherry blossoms, rendered as pixel art"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <div>
+      <h1>Hengzhen Jiang</h1>
+      <p class="lead">Master's student in Financial Technology at Duke University. I've worked in user research, data analysis, and building practical AI workflows.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn btn-glass" href="mailto:hengzhen.jiang@duke.edu">Get in touch</a>
+      </div>
+      <a class="hint" href="#intro"><span class="arr">↓</span>Scroll</a>
+    </div>
+  </div>
+  <canvas class="pxstrip" id="px-hero" aria-hidden="true"></canvas>
+</section>
+
+<section class="statement wrap" id="intro">
+  <h2 class="h2 rv">Timeline</h2>
+</section>
+
+<section id="education" class="wrap edu-sec" aria-label="Education">
+  <div class="sec-head rv"><div class="eyebrow">Education</div></div>
+  <div class="edu">
+    <article class="edu-card rv">
+      <div class="edu-top"><span class="idx">AUG 2025 — JUN 2027</span><span class="chip run">In progress</span></div>
+      <h3>Duke University</h3>
+      <p class="deg">Master of Engineering in Financial Technology</p>
+      <p class="meta">DURHAM, NORTH CAROLINA</p>
+      <p class="det">Coursework: Machine Learning, Statistical Analysis, Asset Pricing and Risk Management, Python Programming, Data Processing and Algorithms.</p>
+    </article>
+    <article class="edu-card rv">
+      <div class="edu-top"><span class="idx">SEP 2021 — JUN 2025</span><span class="chip ok">Completed</span></div>
+      <h3>Shanghai Lixin University of Accounting and Finance</h3>
+      <p class="deg">Bachelor of Economics in Financial Engineering</p>
+      <p class="meta">SHANGHAI, CHINA</p>
+      <p class="det">Honors: Shanghai Outstanding Graduate; Outstanding Student Leader.</p>
+    </article>
+  </div>
+</section>
+
+<section id="timeline" class="wrap" aria-label="Timeline">
+  <div class="sec-head rv"><div class="eyebrow">2021 — 2027 · Most recent first</div></div>
+  <ol class="tl">
+    <li class="tl-year rv"><span>2026</span><span class="tl-rail"></span><span></span></li>
+    <li class="tl-item rv" data-kind="project"><div class="tl-when">Jul — Aug 2026</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#lab"><span class="when-inline">Jul — Aug 2026</span><b>Multimodal Short-Video Content Analysis Agent</b><span class="sub">Side project: a workflow for reviewing creator videos</span><span class="tl-kind">Project</span></a></li>
+    <li class="tl-item rv" data-kind="internship"><div class="tl-when">Jun — Aug 2026</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#work"><span class="when-inline">Jun — Aug 2026</span><b>Lovart · International KOL Operations Intern</b><span class="sub">Creator campaigns across Europe and North America, plus a LangChain workflow</span><span class="tl-kind">Internship</span></a></li>
+    <li class="tl-item rv" data-kind="project"><div class="tl-when">Jan — Apr 2026</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#projects"><span class="when-inline">Jan — Apr 2026</span><b>Ethereum Token Fraud Detection</b><span class="sub">27 behavioral features from 2.2M on-chain transactions, LightGBM at 0.96 AUC</span><span class="tl-kind">Project</span></a></li>
+    <li class="tl-item rv" data-kind="internship"><div class="tl-when">Jan — Apr 2026</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#work"><span class="when-inline">Jan — Apr 2026</span><b>iQIYI International · North America Marketing Operations Intern</b><span class="sub">33,876-response annual user study across English-speaking markets</span><span class="tl-kind">Internship</span></a></li>
+    <li class="tl-year rv"><span>2025</span><span class="tl-rail"></span><span></span></li>
+    <li class="tl-item rv" data-kind="education"><div class="tl-when">Aug 2025 → 2027</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#education"><span class="when-inline">Aug 2025 → Jun 2027</span><b>Duke University · MEng, Financial Technology</b><span class="sub">Machine learning, statistics, asset pricing, and data engineering coursework</span><span class="tl-kind" data-zh="教育">Education</span></a></li>
+    <li class="tl-item rv" data-kind="internship"><div class="tl-when">Feb — May 2025</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#work"><span class="when-inline">Feb — May 2025</span><b>Dewu · Business Analysis Intern, Beauty Card Program</b><span class="sub">Segmentation, A/B-tested outreach, and a live activation dashboard</span><span class="tl-kind">Internship</span></a></li>
+    <li class="tl-year rv"><span>2024</span><span class="tl-rail"></span><span></span></li>
+    <li class="tl-item rv" data-kind="internship"><div class="tl-when">May — Aug 2024</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#work"><span class="when-inline">May — Aug 2024</span><b>SDIC Securities · Industry Research Intern, Healthcare</b><span class="sub">Market sizing and a three-scenario valuation model for a 10,000-word report</span><span class="tl-kind">Internship</span></a></li>
+    <li class="tl-year rv"><span>2021</span><span class="tl-rail"></span><span></span></li>
+    <li class="tl-item rv" data-kind="education"><div class="tl-when">Sep 2021 — Jun 2025</div><div class="tl-rail"><i></i></div><a class="tl-body" href="#education"><span class="when-inline">Sep 2021 — Jun 2025</span><b>Shanghai Lixin University · BEcon, Financial Engineering</b><span class="sub">Shanghai Outstanding Graduate · Outstanding Student Leader</span><span class="tl-kind" data-zh="教育">Education</span></a></li>
+  </ol>
+</section>
+
+<section id="skills" class="skills wrap">
+  <div class="eyebrow">Skills</div>
+  <h2 class="rv" style="margin-top:12px">Tools I use</h2>
+  <p class="sub rv">Ten of them are hidden in the grid below.</p>
+  <div class="grid-wrap rv"><div class="ws" id="ws" aria-label="Word search of tools"></div></div>
+  <div class="cols">
+    <div class="rv"><span class="eyebrow">Data &amp; analytics</span><h4>SQL, Python, Excel, Tableau, Power BI</h4><p>Pandas, NumPy, scikit-learn, and Matplotlib in Python; VBA and PivotTables in Excel; A/B testing on live campaigns.</p></div>
+    <div class="rv"><span class="eyebrow">Modeling &amp; interpretation</span><h4>LightGBM, SHAP, regression, DCF</h4><p>Five-fold cross-validation, feature attribution, and three-scenario valuation models with sensitivity analysis.</p></div>
+    <div class="rv"><span class="eyebrow">AI &amp; automation</span><h4>LangChain, agent workflows, Codex</h4><p>Prompt engineering, multimodal content analysis, and API integrations for internal tools.</p></div>
+    <div class="rv"><span class="eyebrow">Languages &amp; communication</span><h4>Mandarin (native), English (TOEFL 105)</h4><p>Research reports, content planning, and creator outreach in both Chinese and English.</p></div>
+  </div>
+</section>
+
+<section id="work" class="wrap work-sec" aria-label="Work experience">
+  <div class="sec-head rv"><div class="eyebrow">Work experience</div><h2 class="h2 left">Four internships <span>between 2024 and 2026.</span></h2></div>
+
+  <article class="case">
+    <div class="copy rv">
+      <div class="eyebrow">1.0 — Lovart · Jun — Aug 2026</div>
+      <h3>Creator campaigns in the U.S. and Europe, <span>plus one automation workflow</span></h3>
+      <p class="role">International KOL Operations Intern · Beijing Qidian Xingyu Technology · Global growth and AIGC product marketing</p>
+      <p>Lovart is an AI design and video tool that was expanding into Western markets. I worked on its creator campaigns in the U.S. and Europe: campaign positioning, creator outreach and content review, and a small workflow that kept our collaboration records in sync.</p>
+      <div class="acc">
+        <details open><summary><span class="idx">1.1</span>Campaign strategy<span class="plus"></span></summary><div class="acc-body">Planned the Lovart × SMB and Lovart × Seedance 2.5 campaigns for Europe and North America. Analyzed competitors and creator segments to position Lovart's brand-design and AI-video capabilities for SMB owners, designers, and video creators.</div></details>
+        <details><summary><span class="idx">1.2</span>Creator operations<span class="plus"></span></summary><div class="acc-body">Managed creator partnerships across TikTok, Instagram, and YouTube, reaching 500+ creators. Delivered 85 sponsored posts with 10M+ total impressions while keeping Instagram and YouTube CPMs near $15 and $100.</div></details>
+        <details><summary><span class="idx">1.3</span>Content quality<span class="plus"></span></summary><div class="acc-body">Reviewed product demonstrations, messaging, and creative quality against product-understanding and expression standards, with feedback rounds before publishing.</div></details>
+        <details><summary><span class="idx">1.4</span>Workflow automation<span class="plus"></span></summary><div class="acc-body">Built a LangChain-based KOL information-processing agent and integrated Python with Feishu APIs to synchronize collaboration records, deduplicate matches, and backfill publishing data.</div></details>
+      </div>
+      <div class="tags"><span>Campaign strategy</span><span>LangChain</span><span>Python</span><span>Feishu API</span></div>
+    </div>
+    <div class="mock rv"><div class="mock-in">
+      <div class="mock-top"><span class="t">Collaboration record sync</span><span class="idx">LANGCHAIN → FEISHU</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Creators reached</div><div class="v">500+</div><div class="d n">US · EU</div></div>
+        <div class="kpi"><div class="l">Sponsored posts</div><div class="v">85</div><div class="d">reviewed</div></div>
+        <div class="kpi"><div class="l">Total impressions</div><div class="v">10M+</div><div class="d">campaigns</div></div>
+      </div>
+      <table class="table" aria-label="Example sync log">
+        <thead><tr><th>Record</th><th>Action</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Design-segment creator · YouTube</td><td>Backfill publish date</td><td><span class="chip ok">Synced</span></td></tr>
+          <tr><td>SMB-segment creator · TikTok</td><td>Match duplicate entry</td><td><span class="chip ok">Merged</span></td></tr>
+          <tr><td>Video-creator segment · Instagram</td><td>Sync collaboration terms</td><td><span class="chip ok">Synced</span></td></tr>
+          <tr><td>New inbound · form submission</td><td>Create record</td><td><span class="chip run">Running</span></td></tr>
+        </tbody>
+      </table>
+      <div class="mock-cap">Rows shown are illustrative of the workflow's actions, not real creator records.</div>
+    </div></div>
+  </article>
+
+  <div class="collabs rv" aria-label="Selected creator collaborations">
+    <div class="collabs-head">
+      <div><div class="eyebrow">1.5 — Selected creator collaborations</div><p>19 of the creator posts from the Lovart × SMB and Lovart × Seedance 2.5 campaigns. YouTube videos play a short preview as they go by; tap one to watch it. The others open on their own platform. Hover to pause.</p></div>
+    </div>
+    <div class="marquee cmq" data-dir="left" aria-label="Creator collaborations"><div class="track" id="cstrip"><div class="cit yt wide" data-id="eFzla0vR2lY" data-start="25" role="button" tabindex="0" aria-label="Play: Me vs T-Rex: Pushing Seedance 2.5 to the Limit"><span class="cthumb"><img src="assets/collabs/yt-eFzla0vR2lY.jpg" alt="" loading="lazy" decoding="async"><span class="cbadge">YouTube</span><span class="play"></span></span><div class="ccap"><span class="cplat">YouTube · AIQUEST</span><b>Me vs T-Rex: Pushing Seedance 2.5 to the Limit</b></div></div><div class="cit yt wide" data-id="bR0Fh4y-DYE" data-start="40" role="button" tabindex="0" aria-label="Play: Adiós Diseñadores: Lovart crea tu marca completa con IA"><span class="cthumb"><img src="assets/collabs/yt-bR0Fh4y-DYE.jpg" alt="" loading="lazy" decoding="async"><span class="cbadge">YouTube</span><span class="play"></span></span><div class="ccap"><span class="cplat">YouTube · Imperator</span><b>Adiós Diseñadores: Lovart crea tu marca completa con IA</b></div></div><div class="cit yt wide" data-id="w6-iI-BfneI" data-start="30" role="button" tabindex="0" aria-label="Play: The Brand That Won 4 Decades Without Changing Once"><span class="cthumb"><img src="assets/collabs/yt-w6-iI-BfneI.jpg" alt="" loading="lazy" decoding="async"><span class="cbadge">YouTube</span><span class="play"></span></span><div class="ccap"><span class="cplat">YouTube · Norff</span><b>The Brand That Won 4 Decades Without Changing Once</b></div></div><div class="cit yt wide" data-id="jsDWuMFgrb4" data-start="35" role="button" tabindex="0" aria-label="Play: AI Tool for Architects &amp; Designers: Infinite Canvas, Presentation, Video and Image Generations"><span class="cthumb"><img src="assets/collabs/yt-jsDWuMFgrb4.jpg" alt="" loading="lazy" decoding="async"><span class="cbadge">YouTube</span><span class="play"></span></span><div class="ccap"><span class="cplat">YouTube · Archi Vlogs</span><b>AI Tool for Architects &amp; Designers: Infinite Canvas, Presentation, Video and Image Generations</b></div></div><a class="cit ig tall" href="https://www.instagram.com/p/DcLw2HYIWIq/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DcLw2HYIWIq.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/p/DbTEFvjt7ql/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DbTEFvjt7ql.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DbKzOvPI9lj/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DbKzOvPI9lj.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DcJnn36IJnG/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DcJnn36IJnG.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/p/Dbx9aI0obCZ/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-Dbx9aI0obCZ.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig sq" href="https://www.instagram.com/p/Da2VgiijQU3/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-Da2VgiijQU3.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig sq" href="https://www.instagram.com/p/Dam2d5jj3g4/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-Dam2d5jj3g4.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/Db8dRNeCKuK/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-Db8dRNeCKuK.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DbOWQbdioHo/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DbOWQbdioHo.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/p/Db5oOQjtu0n/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-Db5oOQjtu0n.jpg" alt="Instagram post from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Post</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DcoLO3XR6oa/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DcoLO3XR6oa.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DbdOW1OMAsV/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DbdOW1OMAsV.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit ig tall" href="https://www.instagram.com/reel/DcV6ojwIA3e/" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/ig-DcV6ojwIA3e.jpg" alt="Instagram reel from a Lovart creator campaign" loading="lazy" decoding="async"><span class="cbadge">Instagram</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">Instagram · Reel</span><b>Open on Instagram</b></div></a><a class="cit tt tall" href="https://www.tiktok.com/@rivestudio/video/7677598960650833185" target="_blank" rel="noopener"><span class="cthumb"><img src="assets/collabs/tt-7677598960650833185.jpg" alt="TikTok video by Rive’s — Branding &amp; Design" loading="lazy" decoding="async"><span class="cbadge">TikTok</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">TikTok · @rivestudio</span><b>My favorite part of any branding project, hands down, are the mockups</b></div></a><a class="cit x sq" href="https://x.com/ValeriA_Tech/status/2085651427473723707" target="_blank" rel="noopener"><span class="cthumb"><span class="xg">𝕏</span><span class="ext">↗</span></span><div class="ccap"><span class="cplat">X · @ValeriA_Tech</span><b>Open the post</b></div></a></div></div>
+  </div>
+
+  <article class="case flip">
+    <div class="copy rv">
+      <div class="eyebrow">2.0 — iQIYI International · Jan — Apr 2026</div>
+      <h3>What English-speaking viewers watch, <span>and how they find it</span></h3>
+      <p class="role">North America Marketing Operations Intern · Audience research</p>
+      <p>iQIYI International runs an annual user survey across English-speaking markets. I handled the content analysis: 33,876 completed responses, analyzed in Python by content preference, membership status, age, country, and where people first discovered the content.</p>
+      <div class="acc">
+        <details open><summary><span class="idx">2.1</span>Content preference<span class="plus"></span></summary><div class="acc-body">Compared awareness, viewing interest, and preference across Asian dramas, short-form dramas, animation, and AI content. Content does not play a single role in growth: Chinese dramas form a consumption base, BL/GL resonates with younger members, Korean dramas and animation show stronger acquisition potential.</div></details>
+        <details><summary><span class="idx">2.2</span>Audience segmentation<span class="plus"></span></summary><div class="acc-body">Cross-analyzed country, age, membership status, and ethnicity to find where the same content carries different value.</div></details>
+        <details><summary><span class="idx">2.3</span>Growth pathways<span class="plus"></span></summary><div class="acc-body">Short-form drama is discovered more often through social media. For non-users, social channels are the opening to create discovery and guide interest toward iQIYI.</div></details>
+        <details><summary><span class="idx">2.4</span>Output<span class="plus"></span></summary><div class="acc-body">A research report informing English-region content selection, off-platform discovery, and product consideration.</div></details>
+      </div>
+      <div class="tags"><span>Python</span><span>Survey design</span><span>Segmentation</span><span>Visualization</span></div>
+    </div>
+    <div class="mock rv"><div class="mock-in">
+      <div class="mock-top"><span class="t">English-region annual study</span><span class="idx">iQIYI INTERNATIONAL</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Completed responses</div><div class="v">33,876</div><div class="d n">cleaned</div></div>
+        <div class="kpi"><div class="l">Content directions</div><div class="v">4</div><div class="d n">compared</div></div>
+        <div class="kpi"><div class="l">Analysis layers</div><div class="v">3</div><div class="d n">linked</div></div>
+      </div>
+      <div class="seg"><span class="hot">Asian dramas</span><span>Short-form dramas</span><span>Animation</span><span>AI content</span></div>
+      <div class="steps">
+        <div class="step"><span class="idx">2.1</span><div><b>Content preference</b><span>What role does each direction play in English-region markets?</span></div></div>
+        <div class="step"><span class="idx">2.2</span><div><b>Audience segmentation</b><span>Country · age · membership status · ethnicity</span></div></div>
+        <div class="step"><span class="idx">2.3</span><div><b>Growth pathways</b><span>Where people discover content and how they enter iQIYI</span></div></div>
+      </div>
+      <div class="mock-cap">Different content categories serve different moments in the user journey.</div>
+    </div></div>
+  </article>
+
+  <article class="case">
+    <div class="copy rv">
+      <div class="eyebrow">3.0 — Dewu · Feb — May 2025</div>
+      <h3>From behavioral data <span>to better activation</span></h3>
+      <p class="role">Business Analysis Intern · Beauty Card Program · Commercial analytics</p>
+      <p>At Dewu I supported the beauty-card membership program. I used SQL and Python to segment users, helped design the SMS outreach and its A/B test, and built the dashboard we used to track activation and subsidy spend.</p>
+      <div class="acc">
+        <details open><summary><span class="idx">3.1</span>Segmentation<span class="plus"></span></summary><div class="acc-body">Queried and cleaned behavioral data with SQL and Python, then separated high-intent and broader-intent audiences by purchase frequency and brand-browsing depth.</div></details>
+        <details><summary><span class="idx">3.2</span>Outreach and testing<span class="plus"></span></summary><div class="acc-body">Designed differentiated SMS outreach and validated it through A/B testing: 500+ new card activations and roughly a 12% month-over-month lift in activation rate.</div></details>
+        <details><summary><span class="idx">3.3</span>Merchant selection<span class="plus"></span></summary><div class="acc-body">Built a multi-criteria Excel model to select campaign merchants, using placement exposure as the incentive for merchant discounts.</div></details>
+        <details><summary><span class="idx">3.4</span>Monitoring<span class="plus"></span></summary><div class="acc-body">Built a BI dashboard for activation and SKU-redemption funnels, shifting placement allocation from static ranking to data-driven iteration and reducing subsidy costs by about 15%.</div></details>
+      </div>
+      <div class="tags"><span>SQL</span><span>Pandas</span><span>A/B testing</span><span>Excel</span><span>BI</span></div>
+    </div>
+    <div class="mock rv"><div class="mock-in">
+      <div class="mock-top"><span class="t">Beauty card · activation funnel</span><span class="idx">DEWU · COMMERCIAL ANALYTICS</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">New cardholders</div><div class="v">500+</div><div class="d">contributed</div></div>
+        <div class="kpi"><div class="l">Activation lift</div><div class="v">+12%</div><div class="d">month over month</div></div>
+        <div class="kpi"><div class="l">Subsidy cost</div><div class="v">−15%</div><div class="d">approx.</div></div>
+      </div>
+      <div class="ab">
+        <div class="v"><div class="l">A · generic SMS</div><div class="n">baseline</div><div class="bar"><i style="width:46%;background:#c9ccc6"></i></div></div>
+        <div class="v win"><div class="l">B · segmented SMS</div><div class="n">+12% activation</div><div class="bar"><i style="width:62%"></i></div></div>
+      </div>
+      <div class="funnel" aria-hidden="true">
+        <div style="width:100%">Card issued</div><div style="width:74%">Activated</div><div style="width:48%">SKU redeemed</div>
+      </div>
+      <div class="mock-cap">Funnel widths are schematic. Reported figures are the ones above.</div>
+    </div></div>
+  </article>
+
+  <article class="case flip">
+    <div class="copy rv">
+      <div class="eyebrow">4.0 — SDIC Securities · May — Aug 2024</div>
+      <h3>Sizing two ophthalmic markets <span>and valuing one company</span></h3>
+      <p class="role">Industry Research Intern · Healthcare research group</p>
+      <p>In SDIC Securities' healthcare research group, I estimated the size of the intraocular-lens and orthokeratology-lens markets from Choice terminal data and penetration benchmarks, then built the valuation model behind a 10,000-word report on Aibo Medical.</p>
+      <div class="acc">
+        <details open><summary><span class="idx">4.1</span>Market sizing<span class="plus"></span></summary><div class="acc-body">A top-down comparison of domestic and overseas penetration rates showed both markets early in adoption, with a credible domestic-substitution case. Regression forecasts of 2026 market size kept error within ±8%.</div></details>
+        <details><summary><span class="idx">4.2</span>Valuation<span class="plus"></span></summary><div class="acc-body">Broke down Aibo Medical's segment revenue and margin trends, set growth assumptions by competitive position, and built a three-scenario DCF plus P/E model with sensitivity analysis on the key variables.</div></details>
+        <details><summary><span class="idx">4.3</span>Output<span class="plus"></span></summary><div class="acc-body">The analysis went into a 10,000-word research report with an investment recommendation.</div></details>
+      </div>
+      <div class="tags"><span>Choice terminal</span><span>Excel</span><span>Regression</span><span>DCF</span></div>
+    </div>
+    <div class="mock rv"><div class="mock-in">
+      <div class="mock-top"><span class="t">Market sizing &amp; valuation</span><span class="idx">SDIC · HEALTHCARE</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Forecast error</div><div class="v">±8%</div><div class="d n">2026 market size</div></div>
+        <div class="kpi"><div class="l">DCF scenarios</div><div class="v">3</div><div class="d n">plus P/E</div></div>
+        <div class="kpi"><div class="l">Report length</div><div class="v">10,000</div><div class="d n">words</div></div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="idx">4.1</span><div><b>Penetration benchmarks</b><span>Intraocular lens · orthokeratology lens · domestic vs overseas</span></div></div>
+        <div class="step"><span class="idx">4.2</span><div><b>Regression forecast</b><span>2026 market size for both tracks, error within ±8%</span></div></div>
+        <div class="step"><span class="idx">4.3</span><div><b>Three-scenario DCF + P/E</b><span>Aibo Medical segment revenue, margins, and sensitivity</span></div></div>
+      </div>
+      <div class="mock-cap">Sources: Choice terminal financial and industry data.</div>
+    </div></div>
+  </article>
+</section>
+
+<section id="projects" class="wrap proj-sec" aria-label="Projects">
+  <div class="sec-head rv"><div class="eyebrow">Projects</div><h2 class="h2 left">Two projects, <span>one from a course and one on my own.</span></h2></div>
+
+  <article class="case">
+    <div class="copy rv">
+      <div class="eyebrow">5.0 — Academic project · Jan — Apr 2026</div>
+      <h3>Spotting spam tokens <span>from on-chain behavior</span></h3>
+      <p class="role">Ethereum Token Fraud Detection · Team research project, Duke University</p>
+      <p>A team course project at Duke. For Ethereum tokens that imitate the symbols of verified assets, we built a classifier from on-chain behavior, using roughly 2.2M transfer events to compare patterns across token contracts.</p>
+      <div class="acc">
+        <details open><summary><span class="idx">5.1</span>Key finding<span class="plus"></span></summary><div class="acc-body">Spam tokens cluster in a narrow block window and show concentrated distribution. 34.0% of spam tokens were active in only one block, against 7.2% of legitimate tokens.</div></details>
+        <details><summary><span class="idx">5.2</span>Method<span class="plus"></span></summary><div class="acc-body">Engineered 27 behavioral features over 3,606 labeled tokens and benchmarked six classifiers. Symbol collisions were used to construct labels, not as model inputs, so the classifier learned on-chain behavior rather than the labeling rule. LightGBM tuned with five-fold cross-validation reached 0.89 macro F1, 0.96 AUC, and a 90% fraud-detection rate.</div></details>
+        <details><summary><span class="idx">5.3</span>What did not work<span class="plus"></span></summary><div class="acc-body">Semi-supervised expansion with about 8,750 unlabeled tokens did not improve performance. Distribution shift and pseudo-label noise made the supervised model more reliable.</div></details>
+        <details><summary><span class="idx">5.4</span>From model to rules<span class="plus"></span></summary><div class="acc-body">Applied SHAP to surface fraud signals such as short active windows and concentrated senders, and turned them into risk-control rules and a cost-aware decision threshold. I worked across the pipeline: framing the problem, building labels, feature engineering, model comparison, and interpretation.</div></details>
+      </div>
+      <div class="tags"><span>Python</span><span>LightGBM</span><span>SHAP</span><span>scikit-learn</span></div>
+    </div>
+    <div class="mock rv"><div class="mock-in">
+      <div class="mock-top"><span class="t">Global feature importance</span><span style="display:flex;gap:8px;align-items:center"><span class="idx">MEAN |SHAP| · 541 TEST TOKENS</span><button class="replay" id="replay" type="button" aria-label="Replay chart animation"><span class="ico">↻</span> Replay</button></span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Macro F1</div><div class="v">0.8838</div><div class="d">held-out</div></div>
+        <div class="kpi"><div class="l">ROC–AUC</div><div class="v">0.9562</div><div class="d">held-out</div></div>
+        <div class="kpi"><div class="l">Labeled tokens</div><div class="v">3,606</div><div class="d n">27 features</div></div>
+      </div>
+      <div class="bars">
+        <div class="br"><span class="n">n_distinct_blocks</span><div class="t"><div class="b top" style="--w:100%"></div></div><span class="v">0.81</span></div>
+        <div class="br"><span class="n">block_range</span><div class="t"><div class="b" style="--w:93%"></div></div><span class="v">0.75</span></div>
+        <div class="br"><span class="n">value_mean</span><div class="t"><div class="b" style="--w:84%"></div></div><span class="v">0.68</span></div>
+        <div class="br"><span class="n">top1_sender_share</span><div class="t"><div class="b" style="--w:58%"></div></div><span class="v">0.47</span></div>
+        <div class="br"><span class="n">transfers_per_block</span><div class="t"><div class="b" style="--w:52%"></div></div><span class="v">0.42</span></div>
+        <div class="br"><span class="n">n_unique_senders</span><div class="t"><div class="b" style="--w:45%"></div></div><span class="v">0.36</span></div>
+        <div class="br"><span class="n">unique_values_count</span><div class="t"><div class="b" style="--w:44%"></div></div><span class="v">0.35</span></div>
+        <div class="br"><span class="n">n_unique_receivers</span><div class="t"><div class="b" style="--w:40%"></div></div><span class="v">0.32</span></div>
+      </div>
+      <div class="mock-cap">Rather than token names, the model relied most on activity spread, transfer value, and sender concentration.</div>
+    </div></div>
+  </article>
+</section>
+
+<section id="lab" class="band" aria-label="Multimodal short-video content analysis agent">
+  <canvas class="pxtop" id="px-band-top" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="eyebrow">6.0 — Independent project · Jul — Aug 2026</div>
+    <h2 class="rv">A short-video analysis agent <span>for reviewing creator content</span></h2>
+    <p class="lead rv">A side project from the Lovart internship. It collects public short videos, transcribes the subtitles, samples key frames, and uses an LLM to note the hook, where the product appears, whether a sponsorship is disclosed, and the call to action, so reviewing creator content takes less time.</p>
+    <div class="facts rv"><span>Collects public short-form content</span><span>Transcribes subtitles and reads key frames</span><span class="live">Flags hooks, product exposure, sponsorships, and CTAs</span></div>
+    <div class="agent rv"><div class="agent-in">
+      <div class="agent-form">
+        <b>Agent template</b>
+        <div class="l">Name</div><div class="f">Content Analysis Agent</div>
+        <div class="l">Scope</div><div class="f">Overseas AIGC growth · creator-content review</div>
+        <div class="l">Instructions</div><div class="f ta">Collect public short videos, transcribe, sample key frames, and report hooks, product exposure, sponsorship signals, and calls to action.</div>
+      </div>
+      <div class="flow" aria-hidden="true">
+        <span class="pill">Trigger · new video</span><span class="vline"></span>
+        <div class="node"><i>◎</i><div><b>Content Analysis</b><span>Lead agent</span></div></div>
+        <span class="vline"></span><span class="pill">Pipeline</span><span class="vline"></span>
+        <div class="subs four">
+          <div class="node"><i>1</i><div><b>Collect</b><span>Public content</span></div></div>
+          <div class="node"><i>2</i><div><b>Transcribe</b><span>Subtitles</span></div></div>
+          <div class="node"><i>3</i><div><b>Key frames</b><span>Recognition</span></div></div>
+          <div class="node"><i>4</i><div><b>Analyze</b><span>LLM pass</span></div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="status rv"><i></i>Built · Jul — Aug 2026 · Python, LangChain, multimodal models</div>
+  </div>
+  <canvas class="pxbot" id="px-band-bot" aria-hidden="true"></canvas>
+</section>
+
+<section id="notes" class="notes" aria-label="Personal moments">
+  <div class="wrap">
+    <div class="eyebrow">Personal · 2024 — 26</div>
+    <h2 class="rv" style="margin-top:12px">Some photos <span class="faint">from the last two years</span></h2>
+    <p class="sub rv">Places and people outside of work. Tap any one to open it.</p>
+  </div>
+  <div class="marquee rv" data-dir="left" aria-label="Field notes, row one">
+    <div class="track"><button class="note" type="button" data-i="0" data-n="3" data-title="Hilltop over the bay" data-full="assets/notes/n003-full.jpg"><div class="card"><h4>Note 3<span>Hilltop over the bay</span></h4><hr><span class="idx">Field note 3 / 76</span><div class="imgwrap"><img src="assets/notes/n003.jpg" alt="Hilltop over the bay" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="1" data-n="5" data-title="Frozen fountain" data-full="assets/notes/n005-full.jpg"><div class="card"><h4>Note 5<span>Frozen fountain</span></h4><hr><span class="idx">Field note 5 / 76</span><div class="imgwrap"><img src="assets/notes/n005.jpg" alt="Frozen fountain" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="2" data-n="7" data-title="Pineapple fountain" data-full="assets/notes/n007-full.jpg"><div class="card"><h4>Note 7<span>Pineapple fountain</span></h4><hr><span class="idx">Field note 7 / 76</span><div class="imgwrap"><img src="assets/notes/n007.jpg" alt="Pineapple fountain" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="3" data-n="13" data-title="Cypress swamp, kayaks" data-full="assets/notes/n013-full.jpg"><div class="card"><h4>Note 13<span>Cypress swamp, kayaks</span></h4><hr><span class="idx">Field note 13 / 76</span><div class="imgwrap"><img src="assets/notes/n013.jpg" alt="Cypress swamp, kayaks" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="4" data-n="15" data-title="Two chairs, one horizon" data-full="assets/notes/n015-full.jpg"><div class="card"><h4>Note 15<span>Two chairs, one horizon</span></h4><hr><span class="idx">Field note 15 / 76</span><div class="imgwrap"><img src="assets/notes/n015.jpg" alt="Two chairs, one horizon" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="5" data-n="19" data-title="A polaroid at the shore" data-full="assets/notes/n019-full.jpg"><div class="card"><h4>Note 19<span>A polaroid at the shore</span></h4><hr><span class="idx">Field note 19 / 76</span><div class="imgwrap"><img src="assets/notes/n019.jpg" alt="A polaroid at the shore" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="6" data-n="24" data-title="Chena River, snow road" data-full="assets/notes/n024-full.jpg"><div class="card"><h4>Note 24<span>Chena River, snow road</span></h4><hr><span class="idx">Field note 24 / 76</span><div class="imgwrap"><img src="assets/notes/n024.jpg" alt="Chena River, snow road" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="7" data-n="34" data-title="Blossoms on campus" data-full="assets/notes/n034-full.jpg"><div class="card"><h4>Note 34<span>Blossoms on campus</span></h4><hr><span class="idx">Field note 34 / 76</span><div class="imgwrap"><img src="assets/notes/n034.jpg" alt="Blossoms on campus" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="8" data-n="37" data-title="Lake at dusk" data-full="assets/notes/n037-full.jpg"><div class="card"><h4>Note 37<span>Lake at dusk</span></h4><hr><span class="idx">Field note 37 / 76</span><div class="imgwrap"><img src="assets/notes/n037.jpg" alt="Lake at dusk" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="9" data-n="40" data-title="Home game" data-full="assets/notes/n040-full.jpg"><div class="card"><h4>Note 40<span>Home game</span></h4><hr><span class="idx">Field note 40 / 76</span><div class="imgwrap"><img src="assets/notes/n040.jpg" alt="Home game" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="10" data-n="42" data-title="Duke wins" data-full="assets/notes/n042-full.jpg"><div class="card"><h4>Note 42<span>Duke wins</span></h4><hr><span class="idx">Field note 42 / 76</span><div class="imgwrap"><img src="assets/notes/n042.jpg" alt="Duke wins" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="11" data-n="43" data-title="Sunset over the surf" data-full="assets/notes/n043-full.jpg"><div class="card"><h4>Note 43<span>Sunset over the surf</span></h4><hr><span class="idx">Field note 43 / 76</span><div class="imgwrap"><img src="assets/notes/n043.jpg" alt="Sunset over the surf" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button></div>
+  </div>
+  <div class="marquee rv" data-dir="right" aria-label="Field notes, row two">
+    <div class="track"><button class="note" type="button" data-i="12" data-n="46" data-title="Bonfire night" data-full="assets/notes/n046-full.jpg"><div class="card"><h4>Note 46<span>Bonfire night</span></h4><hr><span class="idx">Field note 46 / 76</span><div class="imgwrap"><img src="assets/notes/n046.jpg" alt="Bonfire night" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="13" data-n="48" data-title="Boats at golden hour" data-full="assets/notes/n048-full.jpg"><div class="card"><h4>Note 48<span>Boats at golden hour</span></h4><hr><span class="idx">Field note 48 / 76</span><div class="imgwrap"><img src="assets/notes/n048.jpg" alt="Boats at golden hour" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="14" data-n="49" data-title="First snow" data-full="assets/notes/n049-full.jpg"><div class="card"><h4>Note 49<span>First snow</span></h4><hr><span class="idx">Field note 49 / 76</span><div class="imgwrap"><img src="assets/notes/n049.jpg" alt="First snow" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="15" data-n="51" data-title="Orange canopy" data-full="assets/notes/n051-full.jpg"><div class="card"><h4>Note 51<span>Orange canopy</span></h4><hr><span class="idx">Field note 51 / 76</span><div class="imgwrap"><img src="assets/notes/n051.jpg" alt="Orange canopy" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="16" data-n="54" data-title="A smile in the snow" data-full="assets/notes/n054-full.jpg"><div class="card"><h4>Note 54<span>A smile in the snow</span></h4><hr><span class="idx">Field note 54 / 76</span><div class="imgwrap"><img src="assets/notes/n054.jpg" alt="A smile in the snow" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="17" data-n="58" data-title="Colourful street, winter" data-full="assets/notes/n058-full.jpg"><div class="card"><h4>Note 58<span>Colourful street, winter</span></h4><hr><span class="idx">Field note 58 / 76</span><div class="imgwrap"><img src="assets/notes/n058.jpg" alt="Colourful street, winter" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="18" data-n="63" data-title="Sunrise, one tree" data-full="assets/notes/n063-full.jpg"><div class="card"><h4>Note 63<span>Sunrise, one tree</span></h4><hr><span class="idx">Field note 63 / 76</span><div class="imgwrap"><img src="assets/notes/n063.jpg" alt="Sunrise, one tree" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="19" data-n="27" data-title="Concert lights" data-full="assets/notes/n027-full.jpg"><div class="card"><h4>Note 27<span>Concert lights</span></h4><hr><span class="idx">Field note 27 / 76</span><div class="imgwrap"><img src="assets/notes/n027.jpg" alt="Concert lights" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="20" data-n="9" data-title="Bridge at dusk" data-full="assets/notes/n009-full.jpg"><div class="card"><h4>Note 9<span>Bridge at dusk</span></h4><hr><span class="idx">Field note 9 / 76</span><div class="imgwrap"><img src="assets/notes/n009.jpg" alt="Bridge at dusk" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="21" data-n="74" data-title="Sunset over the clouds" data-full="assets/notes/n074-full.jpg"><div class="card"><h4>Note 74<span>Sunset over the clouds</span></h4><hr><span class="idx">Field note 74 / 76</span><div class="imgwrap"><img src="assets/notes/n074.jpg" alt="Sunset over the clouds" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="22" data-n="76" data-title="Walking the shoreline" data-full="assets/notes/n076-full.jpg"><div class="card"><h4>Note 76<span>Walking the shoreline</span></h4><hr><span class="idx">Field note 76 / 76</span><div class="imgwrap"><img src="assets/notes/n076.jpg" alt="Walking the shoreline" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button><button class="note" type="button" data-i="23" data-n="35" data-title="Palm cove" data-full="assets/notes/n035-full.jpg"><div class="card"><h4>Note 35<span>Palm cove</span></h4><hr><span class="idx">Field note 35 / 76</span><div class="imgwrap"><img src="assets/notes/n035.jpg" alt="Palm cove" loading="lazy" decoding="async"></div><div class="ft"><span>by Hengzhen</span><span>2024—26</span></div></div></button></div>
+  </div>
+  <div class="wrap" style="text-align:center"><div class="more rv">24 of 76 photos <i>hover to pause</i></div></div>
+</section>
+
+<footer id="about">
+  <div class="wrap foot">
+    <div class="rv">
+      <h2>A little <span>about me.</span></h2>
+      <p style="margin-top:16px;max-width:46ch;font-size:14px;line-height:1.5;color:var(--ink-muted)">I'm doing an MEng in Financial Technology at Duke, after a bachelor's in financial engineering in Shanghai. My internships have been in equity research, business analytics, user research, and creator operations. I like work that sits between people and data.</p>
+      <div class="row"><span class="k">Résumé</span><a href="assets/resume/Hengzhen_Jiang_Resume_EN.pdf" download="Hengzhen_Jiang_Resume_EN.pdf">English PDF ↓</a><a href="assets/resume/Hengzhen_Jiang_Resume_ZH.pdf" download="姜蘅珍_简历.pdf">中文简历 ↓</a></div>
+      <div class="links">
+        <a href="#top">Top</a><a href="mailto:hengzhen.jiang@duke.edu">hengzhen.jiang@duke.edu</a>
+        <a href="#work">Work experience</a><a href="#projects">Projects</a>
+        <a href="#skills">Skills</a><a href="#notes">Field notes</a>
+      </div>
+      <p class="fine">© 2026 Hengzhen Jiang · 姜蘅珍 · Duke University · FinTech</p>
+    </div>
+    <div class="holo rv" id="holo">
+      <div class="holo-in">
+        <img src="assets/portrait.jpg" alt="Portrait of Hengzhen Jiang">
+        <div class="glare"></div>
+        <div class="txt"><p>Graduating in 2027. <span>Open to research, growth, and analytics roles.</span></p><a class="btn" href="mailto:hengzhen.jiang@duke.edu">Get in touch</a></div>
+      </div>
+    </div>
+  </div>
+  <canvas class="grass" id="px-foot" aria-hidden="true"></canvas>
+</footer>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Field note">
+  <div class="lb-bg"></div>
+  <button class="lb-x" id="lb-x" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous note">←</button>
+  <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next note">→</button>
+  <figure class="lb-fig" id="lb-fig">
+    <div class="lb-frame" id="lb-frame"><img id="lb-img" alt=""></div>
+    <figcaption class="lb-cap"><span class="idx" id="lb-idx"></span><span id="lb-title"></span></figcaption>
+  </figure>
+</div>
+
+<div class="lb vlb" id="vlb" hidden role="dialog" aria-modal="true" aria-label="Video">
+  <div class="lb-bg" id="vlb-bg"></div>
+  <button class="lb-x" id="vlb-x" type="button" aria-label="Close video">×</button>
+  <figure class="lb-fig vlb-fig">
+    <div class="vlb-frame"><iframe id="vlb-if" title="Creator video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    <figcaption class="lb-cap"><span class="idx" id="vlb-plat"></span><span id="vlb-title"></span></figcaption>
+  </figure>
+</div>
+
+<script>
+(() => {
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- language (Chinese default, English on demand) ----------
+  const I18N = {"title": "姜蘅珍", "patterns": [["^Field note (\\d+) / 76$", "照片 $1 / 76"], ["^Note (\\d+)$", "第 $1 张"]], "strings": {"Hengzhen Jiang": "姜蘅珍", "Skills": "技能", "Work": "实习", "Projects": "项目", "Notes": "照片", "About": "关于", "Résumé": "简历", "Download · PDF": "下载 PDF", "English résumé": "英文版", "Get in touch": "联系我", "Master's student in Financial Technology at Duke University. I've worked in user research, data analysis, and building practical AI workflows.": "我在杜克大学读金融科技工程硕士。做过用户研究和数据分析，也搭过几个实际在用的 AI 工作流。", "See my work": "看看我做过的事", "Scroll": "往下看", "Timeline": "时间轴", "Education": "教育背景", "AUG 2025 — JUN 2027": "2025.08 — 2027.06", "In progress": "在读", "Duke University": "杜克大学", "Master of Engineering in Financial Technology": "金融科技 · 工程硕士", "DURHAM, NORTH CAROLINA": "美国北卡罗来纳州达勒姆", "Coursework: Machine Learning, Statistical Analysis, Asset Pricing and Risk Management, Python Programming, Data Processing and Algorithms.": "主修课程：机器学习、统计分析、资产定价与风险管理、Python 编程、数据处理与算法基础。", "SEP 2021 — JUN 2025": "2021.09 — 2025.06", "Completed": "已毕业", "Shanghai Lixin University of Accounting and Finance": "上海立信会计金融学院", "Bachelor of Economics in Financial Engineering": "金融工程（中美合作）· 经济学学士", "SHANGHAI, CHINA": "中国上海", "Honors: Shanghai Outstanding Graduate; Outstanding Student Leader.": "曾获上海市优秀毕业生、优秀学生干部。", "2021 — 2027 · Most recent first": "2021 — 2027 · 最新在前", "Jul — Aug 2026": "2026.07 — 2026.08", "Multimodal Short-Video Content Analysis Agent": "多模态短视频内容分析 Agent", "Side project: a workflow for reviewing creator videos": "自己做的小项目，用来复盘创作者视频", "Project": "项目", "Jun — Aug 2026": "2026.06 — 2026.08", "Lovart · International KOL Operations Intern": "Lovart · 欧美 KOL 运营实习生", "Creator campaigns across Europe and North America, plus a LangChain workflow": "欧美创作者合作，以及一个 LangChain 自动化工作流", "Internship": "实习", "Jan — Apr 2026": "2026.01 — 2026.04", "Ethereum Token Fraud Detection": "以太坊代币欺诈识别", "27 behavioral features from 2.2M on-chain transactions, LightGBM at 0.96 AUC": "从 220 万笔链上交易里提取 27 个行为特征，LightGBM 做到 0.96 AUC", "iQIYI International · North America Marketing Operations Intern": "爱奇艺国际站 · 北美市场运营实习生", "33,876-response annual user study across English-speaking markets": "英语地区年度用户调研的内容分析，33,876 份问卷", "Aug 2025 → 2027": "2025.08 → 2027", "Aug 2025 → Jun 2027": "2025.08 → 2027.06", "Duke University · MEng, Financial Technology": "杜克大学 · 金融科技工程硕士", "Machine learning, statistics, asset pricing, and data engineering coursework": "机器学习、统计、资产定价和数据处理相关课程", "Feb — May 2025": "2025.02 — 2025.05", "Dewu · Business Analysis Intern, Beauty Card Program": "得物 · 美妆卡项目商业分析实习生", "Segmentation, A/B-tested outreach, and a live activation dashboard": "用户分层、短信触达的 A/B 测试，以及一个开卡看板", "May — Aug 2024": "2024.05 — 2024.08", "SDIC Securities · Industry Research Intern, Healthcare": "国投证券 · 医药组行业研究实习生", "Market sizing and a three-scenario valuation model for a 10,000-word report": "市场规模测算和三情景估值模型，支撑一篇万字报告", "Sep 2021 — Jun 2025": "2021.09 — 2025.06", "Shanghai Lixin University · BEcon, Financial Engineering": "上海立信会计金融学院 · 金融工程", "Shanghai Outstanding Graduate · Outstanding Student Leader": "上海市优秀毕业生 · 优秀学生干部", "Tools I use": "常用工具", "Ten of them are hidden in the grid below.": "下面的字母格里藏了十个工具名。", "Data & analytics": "数据分析", "Pandas, NumPy, scikit-learn, and Matplotlib in Python; VBA and PivotTables in Excel; A/B testing on live campaigns.": "Python 里常用 Pandas、NumPy、scikit-learn 和 Matplotlib；Excel 会写 VBA、做透视表；做过线上活动的 A/B 测试。", "Modeling & interpretation": "建模与解释", "LightGBM, SHAP, regression, DCF": "LightGBM、SHAP、回归、DCF", "Five-fold cross-validation, feature attribution, and three-scenario valuation models with sensitivity analysis.": "五折交叉验证、特征归因，也搭过带敏感性分析的三情景估值模型。", "AI & automation": "AI 与自动化", "LangChain, agent workflows, Codex": "LangChain、Agent 工作流、Codex", "Prompt engineering, multimodal content analysis, and API integrations for internal tools.": "Prompt 编写、多模态内容分析，以及给内部工具做 API 对接。", "Languages & communication": "语言与表达", "Mandarin (native), English (TOEFL 105)": "中文（母语）、英语（托福 105）", "Research reports, content planning, and creator outreach in both Chinese and English.": "中英文都能写研究报告、做内容规划、和创作者沟通。", "Work experience": "实习经历", "Four internships": "四段实习，", "between 2024 and 2026.": "2024 年到 2026 年。", "1.0 — Lovart · Jun — Aug 2026": "1.0 — Lovart · 2026.06 — 2026.08", "Creator campaigns in the U.S. and Europe,": "欧美创作者合作，", "plus one automation workflow": "外加一个自动化小工具", "International KOL Operations Intern · Beijing Qidian Xingyu Technology · Global growth and AIGC product marketing": "欧美 KOL 运营实习生 · 北京奇点星宇科技有限公司", "Lovart is an AI design and video tool that was expanding into Western markets. I worked on its creator campaigns in the U.S. and Europe: campaign positioning, creator outreach and content review, and a small workflow that kept our collaboration records in sync.": "Lovart 是一款做品牌设计和 AI 视频的工具，当时正在拓展欧美市场。我负责欧美创作者合作：定活动方向、联系达人、审内容，也写了一个小工作流来同步合作记录。", "Campaign strategy": "活动策划", "Planned the Lovart × SMB and Lovart × Seedance 2.5 campaigns for Europe and North America. Analyzed competitors and creator segments to position Lovart's brand-design and AI-video capabilities for SMB owners, designers, and video creators.": "策划 Lovart × SMB 和 Lovart × Seedance 2.5 两次欧美活动。按中小企业、设计师、视频创作者几个方向看了竞品和达人生态，确定 Lovart 在品牌设计和 AI 视频生成上的差异点和传播方向。", "Creator operations": "创作者合作", "Managed creator partnerships across TikTok, Instagram, and YouTube, reaching 500+ creators. Delivered 85 sponsored posts with 10M+ total impressions while keeping Instagram and YouTube CPMs near $15 and $100.": "在 TikTok、Instagram、YouTube 上联系了 500 多位达人，最后落地 85 条内容，总曝光 1,000 万以上；Instagram 和 YouTube 的合作 CPM 分别控制在 15 美元和 100 美元左右。", "Content quality": "内容审核", "Reviewed product demonstrations, messaging, and creative quality against product-understanding and expression standards, with feedback rounds before publishing.": "发布前看达人视频里的产品演示、表达和创意是否到位，给出修改意见。", "Workflow automation": "自动化", "Built a LangChain-based KOL information-processing agent and integrated Python with Feishu APIs to synchronize collaboration records, deduplicate matches, and backfill publishing data.": "用 LangChain 搭了一个处理达人合作信息的 Agent，配合 Python 和飞书 API，把合作记录跨表同步、去重，并回填发布信息。", "Collaboration record sync": "合作记录同步", "LANGCHAIN → FEISHU": "LANGCHAIN → 飞书", "Creators reached": "联系达人", "US · EU": "美国 · 欧洲", "Sponsored posts": "落地内容", "reviewed": "已审核", "Total impressions": "总曝光", "campaigns": "两次活动", "Record": "记录", "Action": "操作", "Status": "状态", "Design-segment creator · YouTube": "设计师达人 · YouTube", "Backfill publish date": "回填发布日期", "Synced": "已同步", "SMB-segment creator · TikTok": "中小企业达人 · TikTok", "Match duplicate entry": "匹配重复记录", "Merged": "已合并", "Video-creator segment · Instagram": "视频创作者 · Instagram", "Sync collaboration terms": "同步合作条款", "New inbound · form submission": "新表单提交", "Create record": "新建记录", "Running": "处理中", "Rows shown are illustrative of the workflow's actions, not real creator records.": "这几行只是示意工作流会做什么，不是真实的达人记录。", "1.5 — Selected creator collaborations": "1.5 — 部分合作内容", "19 of the creator posts from the Lovart × SMB and Lovart × Seedance 2.5 campaigns. YouTube videos play a short preview as they go by; tap one to watch it. The others open on their own platform. Hover to pause.": "Lovart × SMB 和 Lovart × Seedance 2.5 两次活动里的 19 条达人内容。YouTube 视频经过时会放一小段预览，点一下可以看完整视频；其他的会跳到原平台。鼠标放上去会暂停。", "Open on Instagram": "去 Instagram 看", "Open the post": "去看这条", "2.0 — iQIYI International · Jan — Apr 2026": "2.0 — 爱奇艺国际站 · 2026.01 — 2026.04", "What English-speaking viewers watch,": "英语地区的用户在看什么，", "and how they find it": "又是从哪里看到的", "North America Marketing Operations Intern · Audience research": "北美市场运营实习生 · 用户研究", "iQIYI International runs an annual user survey across English-speaking markets. I handled the content analysis: 33,876 completed responses, analyzed in Python by content preference, membership status, age, country, and where people first discovered the content.": "爱奇艺国际站每年做一次英语地区用户调研，我负责其中的内容分析部分：33,876 份有效问卷，用 Python 按内容偏好、会员状态、年龄、国家和发现渠道做了交叉分析。", "Content preference": "内容偏好", "Compared awareness, viewing interest, and preference across Asian dramas, short-form dramas, animation, and AI content. Content does not play a single role in growth: Chinese dramas form a consumption base, BL/GL resonates with younger members, Korean dramas and animation show stronger acquisition potential.": "比较了亚洲剧、微剧、动漫和 AI 内容的认知度、观看兴趣和偏好。几类内容的作用并不一样：陆剧是现有用户的基本盘，BL/GL 更吸引年轻会员，韩剧和动漫在非会员里的拉新空间更大。", "Audience segmentation": "受众分层", "Cross-analyzed country, age, membership status, and ethnicity to find where the same content carries different value.": "按国家、年龄、会员状态和族裔交叉拆分，看同一类内容在不同人群里的差别。", "Growth pathways": "增长承接", "Short-form drama is discovered more often through social media. For non-users, social channels are the opening to create discovery and guide interest toward iQIYI.": "微剧主要是通过社交媒体被发现的。对还不是用户的人来说，社媒是让他们接触到内容、再进到爱奇艺的主要入口。", "Output": "产出", "A research report informing English-region content selection, off-platform discovery, and product consideration.": "整理成一份研究报告，供英语地区的内容选择、站外投放和产品讨论参考。", "Survey design": "问卷设计", "Segmentation": "用户分层", "Visualization": "可视化", "English-region annual study": "英语地区年度调研", "iQIYI INTERNATIONAL": "爱奇艺国际站", "Completed responses": "有效问卷", "cleaned": "已清洗", "Content directions": "内容方向", "compared": "已比较", "Analysis layers": "分析层次", "linked": "已串联", "Asian dramas": "亚洲剧", "Short-form dramas": "微剧", "Animation": "动漫", "AI content": "AI 内容", "What role does each direction play in English-region markets?": "每类内容在英语地区分别起什么作用？", "Country · age · membership status · ethnicity": "国家 · 年龄 · 会员状态 · 族裔", "Where people discover content and how they enter iQIYI": "用户从哪里发现内容，又怎么进到爱奇艺", "Different content categories serve different moments in the user journey.": "不同类型的内容，在用户旅程里起的作用不一样。", "3.0 — Dewu · Feb — May 2025": "3.0 — 得物 · 2025.02 — 2025.05", "From behavioral data": "用行为数据", "to better activation": "把开卡率做上去", "Business Analysis Intern · Beauty Card Program · Commercial analytics": "商业分析实习生 · 美妆卡项目", "At Dewu I supported the beauty-card membership program. I used SQL and Python to segment users, helped design the SMS outreach and its A/B test, and built the dashboard we used to track activation and subsidy spend.": "在得物我参与美妆卡会员项目。用 SQL 和 Python 做用户分层，参与设计短信触达方案和 A/B 测试，也搭了一个看板来跟踪开卡率和补贴支出。", "Queried and cleaned behavioral data with SQL and Python, then separated high-intent and broader-intent audiences by purchase frequency and brand-browsing depth.": "用 SQL 和 Python 提取、清洗用户行为数据，按购买频次和品牌浏览深度分出高意向和泛意向两类人群。", "Outreach and testing": "触达与验证", "Designed differentiated SMS outreach and validated it through A/B testing: 500+ new card activations and roughly a 12% month-over-month lift in activation rate.": "两类人群发不同的短信，用 A/B 测试验证效果。新增开卡 500 多个，开卡率环比提升大约 12%。", "Merchant selection": "商家筛选", "Built a multi-criteria Excel model to select campaign merchants, using placement exposure as the incentive for merchant discounts.": "用 Excel 做了一个多条件评估表来挑活动商家，拿资源位曝光换商家让利。", "Monitoring": "看板", "Built a BI dashboard for activation and SKU-redemption funnels, shifting placement allocation from static ranking to data-driven iteration and reducing subsidy costs by about 15%.": "搭了 BI 看板监控开卡率和 SKU 兑换漏斗，资源位分发从固定排序改成按数据调整，补贴成本降了大约 15%。", "A/B testing": "A/B 测试", "Beauty card · activation funnel": "美妆卡 · 开卡漏斗", "DEWU · COMMERCIAL ANALYTICS": "得物 · 商业分析", "New cardholders": "新增开卡", "contributed": "参与贡献", "Activation lift": "开卡率提升", "month over month": "环比", "Subsidy cost": "补贴成本", "approx.": "约", "A · generic SMS": "A · 通用短信", "baseline": "基线", "B · segmented SMS": "B · 分层短信", "+12% activation": "开卡率 +12%", "Card issued": "已发卡", "Activated": "已开卡", "SKU redeemed": "已兑换 SKU", "Funnel widths are schematic. Reported figures are the ones above.": "漏斗宽度只是示意，实际数字以上面的为准。", "4.0 — SDIC Securities · May — Aug 2024": "4.0 — 国投证券 · 2024.05 — 2024.08", "Sizing two ophthalmic markets": "测算两个眼科细分市场，", "and valuing one company": "并给一家公司估值", "Industry Research Intern · Healthcare research group": "行业研究实习生 · 医药组", "In SDIC Securities' healthcare research group, I estimated the size of the intraocular-lens and orthokeratology-lens markets from Choice terminal data and penetration benchmarks, then built the valuation model behind a 10,000-word report on Aibo Medical.": "在国投证券医药组，我用 Choice 终端数据和渗透率指标测算人工晶状体和 OK 镜两个市场的规模，然后搭了爱博医疗的估值模型，支撑一篇一万字左右的研究报告。", "Market sizing": "市场规模测算", "A top-down comparison of domestic and overseas penetration rates showed both markets early in adoption, with a credible domestic-substitution case. Regression forecasts of 2026 market size kept error within ±8%.": "自上而下对比国内外渗透率，两个赛道都还在渗透率提升的早期，国产替代的逻辑站得住。用回归模型测算 2026 年市场规模，误差控制在 ±8% 以内。", "Valuation": "估值", "Broke down Aibo Medical's segment revenue and margin trends, set growth assumptions by competitive position, and built a three-scenario DCF plus P/E model with sensitivity analysis on the key variables.": "拆了爱博医疗各业务的收入结构和毛利率趋势，结合竞争格局定增速假设，搭了三情景 DCF 加 PE 的估值模型，并做了关键变量的敏感性分析。", "The analysis went into a 10,000-word research report with an investment recommendation.": "这些分析最后写进了一篇一万字左右的研究报告和投资建议。", "Choice terminal": "Choice 终端", "Regression": "回归模型", "Market sizing & valuation": "市场测算与估值", "SDIC · HEALTHCARE": "国投证券 · 医药组", "Forecast error": "预测误差", "2026 market size": "2026 年市场规模", "DCF scenarios": "DCF 情景", "plus P/E": "加 PE", "Report length": "报告篇幅", "words": "字", "Penetration benchmarks": "渗透率对比", "Intraocular lens · orthokeratology lens · domestic vs overseas": "人工晶状体 · OK 镜 · 国内外对比", "Regression forecast": "回归预测", "2026 market size for both tracks, error within ±8%": "两个赛道的 2026 年市场规模，误差 ±8% 以内", "Three-scenario DCF + P/E": "三情景 DCF + PE", "Aibo Medical segment revenue, margins, and sensitivity": "爱博医疗分业务收入、毛利率和敏感性", "Sources: Choice terminal financial and industry data.": "数据来源：Choice 终端。", "Two projects,": "两个项目，", "one from a course and one on my own.": "一个是课程项目，一个是自己做的。", "5.0 — Academic project · Jan — Apr 2026": "5.0 — 课程项目 · 2026.01 — 2026.04", "Spotting spam tokens": "从链上行为", "from on-chain behavior": "识别仿冒代币", "Ethereum Token Fraud Detection · Team research project, Duke University": "以太坊代币欺诈识别 · 杜克大学小组项目", "A team course project at Duke. For Ethereum tokens that imitate the symbols of verified assets, we built a classifier from on-chain behavior, using roughly 2.2M transfer events to compare patterns across token contracts.": "杜克的一个小组课程项目。针对模仿正规资产符号的以太坊代币，我们用链上行为数据做了一个分类器，用大约 220 万笔转账记录比较不同代币合约的行为模式。", "Key finding": "主要发现", "Spam tokens cluster in a narrow block window and show concentrated distribution. 34.0% of spam tokens were active in only one block, against 7.2% of legitimate tokens.": "仿冒代币一般只在很短的区块窗口里活动，分发也更集中：34.0% 的仿冒代币只活跃于一个区块，正常代币只有 7.2%。", "Method": "方法", "Engineered 27 behavioral features over 3,606 labeled tokens and benchmarked six classifiers. Symbol collisions were used to construct labels, not as model inputs, so the classifier learned on-chain behavior rather than the labeling rule. LightGBM tuned with five-fold cross-validation reached 0.89 macro F1, 0.96 AUC, and a 90% fraud-detection rate.": "在 3,606 个已标注代币上构建了 27 个行为特征，比较了六种分类器。符号冲突只用来打标签，不作为模型输入，这样模型学到的是链上行为而不是标签规则本身。五折交叉验证调参后的 LightGBM 达到 0.89 Macro F1、0.96 AUC，欺诈检出率 90%。", "What did not work": "没成的尝试", "Semi-supervised expansion with about 8,750 unlabeled tokens did not improve performance. Distribution shift and pseudo-label noise made the supervised model more reliable.": "试过用大约 8,750 个未标注代币做半监督扩充，效果没有变好：分布不一致，伪标签也带进了噪声，最后还是监督模型更稳。", "From model to rules": "从模型到规则", "Applied SHAP to surface fraud signals such as short active windows and concentrated senders, and turned them into risk-control rules and a cost-aware decision threshold. I worked across the pipeline: framing the problem, building labels, feature engineering, model comparison, and interpretation.": "用 SHAP 找出活跃窗口短、发送方集中这类欺诈信号，整理成风控规则，并按业务成本定了决策阈值。从问题定义、打标签、特征工程到模型比较和结果解释，我都参与了。", "Global feature importance": "全局特征重要性", "MEAN |SHAP| · 541 TEST TOKENS": "平均 |SHAP| · 541 个测试代币", "Replay": "重播", "Macro F1": "Macro F1", "held-out": "测试集", "Labeled tokens": "标注代币", "27 features": "27 个特征", "Rather than token names, the model relied most on activity spread, transfer value, and sender concentration.": "模型最看重的不是代币名字，而是活跃区块范围、转账金额和发送方集中度这些行为信号。", "6.0 — Independent project · Jul — Aug 2026": "6.0 — 自己做的项目 · 2026.07 — 2026.08", "A short-video analysis agent": "一个短视频内容分析 Agent，", "for reviewing creator content": "用来复盘创作者内容", "A side project from the Lovart internship. It collects public short videos, transcribes the subtitles, samples key frames, and uses an LLM to note the hook, where the product appears, whether a sponsorship is disclosed, and the call to action, so reviewing creator content takes less time.": "Lovart 实习期间顺手做的一个小项目。它会采集公开的短视频、转录字幕、抽取关键帧，再让大模型标出开头的钩子、产品出现的位置、有没有标注合作，以及最后的行动号召。这样复盘创作者内容能省不少时间。", "Collects public short-form content": "采集公开短视频", "Transcribes subtitles and reads key frames": "转录字幕、抽取关键帧", "Flags hooks, product exposure, sponsorships, and CTAs": "标出钩子、产品露出、合作标注和行动号召", "Agent template": "Agent 模板", "Name": "名称", "Content Analysis Agent": "内容分析 Agent", "Scope": "范围", "Overseas AIGC growth · creator-content review": "AIGC 海外增长 · 创作者内容复盘", "Instructions": "指令", "Collect public short videos, transcribe, sample key frames, and report hooks, product exposure, sponsorship signals, and calls to action.": "采集公开短视频，转录字幕、抽关键帧，输出钩子、产品露出、合作标注和行动号召。", "Trigger · new video": "触发 · 新视频", "Content Analysis": "内容分析", "Lead agent": "主 Agent", "Pipeline": "流程", "Collect": "采集", "Public content": "公开内容", "Transcribe": "转录", "Subtitles": "字幕", "Key frames": "关键帧", "Recognition": "识别", "Analyze": "分析", "LLM pass": "大模型", "Built · Jul — Aug 2026 · Python, LangChain, multimodal models": "2026 年 7 到 8 月做的 · Python、LangChain、多模态模型", "Personal · 2024 — 26": "生活 · 2024 — 26", "Some photos": "这两年", "from the last two years": "拍的一些照片", "Places and people outside of work. Tap any one to open it.": "工作之外去过的地方和见过的人。点开可以看大图。", "24 of 76 photos": "76 张里挑了 24 张", "hover to pause": "悬停可暂停", "by Hengzhen": "姜蘅珍 摄", "Field note": "照片", "Hilltop over the bay": "海湾上的山顶", "Frozen fountain": "冻住的喷泉", "Pineapple fountain": "菠萝喷泉", "Cypress swamp, kayaks": "柏树沼泽里的皮划艇", "Two chairs, one horizon": "两把椅子，一条海平线", "A polaroid at the shore": "海边的一张拍立得", "Chena River, snow road": "奇纳河，雪天的路", "Blossoms on campus": "校园里的花", "Lake at dusk": "傍晚的湖", "Home game": "主场比赛", "Duke wins": "杜克赢了", "Sunset over the surf": "海浪上的日落", "Bonfire night": "篝火晚上", "Boats at golden hour": "傍晚的船", "First snow": "第一场雪", "Orange canopy": "橙色的伞", "A smile in the snow": "雪地上画的笑脸", "Colourful street, winter": "冬天的彩色街道", "Sunrise, one tree": "日出和一棵树", "Concert lights": "演唱会", "Bridge at dusk": "傍晚的桥", "Sunset over the clouds": "云上的日落", "Walking the shoreline": "沿着海边走", "Palm cove": "棕榈树的小海湾", "A little": "简单", "about me.": "介绍一下自己。", "I'm doing an MEng in Financial Technology at Duke, after a bachelor's in financial engineering in Shanghai. My internships have been in equity research, business analytics, user research, and creator operations. I like work that sits between people and data.": "我在杜克大学读金融科技工程硕士，本科在上海立信学金融工程。实习做过行业研究、商业分析、用户研究和创作者运营。比较喜欢在人和数据之间来回的工作。", "English PDF ↓": "英文版 ↓", "Top": "回到顶部", "Field notes": "照片", "Graduating in 2027.": "2027 年毕业。", "Open to research, growth, and analytics roles.": "欢迎聊聊研究、增长或数据分析方向的机会。"}};
+  const PATTERNS = (I18N.patterns || []).map(([re, out]) => [new RegExp(re), out]);
+  const zh = (s) => { if (I18N.strings[s] !== undefined) return I18N.strings[s]; for (const [re, out] of PATTERNS) if (re.test(s)) return s.replace(re, out); return null; };
+  let LANG = document.documentElement.getAttribute('data-lang') || 'zh';
+  const t = (s) => LANG === 'zh' ? (zh(s) ?? s) : s;
+  const SKIP = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA']);
+  const applyLang = (lang) => {
+    LANG = lang;
+    const root = document.documentElement;
+    root.setAttribute('data-lang', lang); root.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? I18N.title : 'Hengzhen Jiang';
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => (SKIP.has(n.parentNode.nodeName) || n.parentNode.closest('#ws, .lang')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+    let n; const nodes = []; while ((n = walker.nextNode())) nodes.push(n);
+    for (const node of nodes) {
+      if (node.__en === undefined) node.__en = node.nodeValue;
+      const en = node.__en, key = en.trim();
+      if (!key) continue;
+      if (lang === 'zh') { const z = node.parentNode.dataset && node.parentNode.dataset.zh !== undefined ? node.parentNode.dataset.zh : zh(key); node.nodeValue = z === null ? en : en.replace(key, z); }
+      else node.nodeValue = en;
+    }
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setLang === lang)));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    root.classList.remove('i18n-pending');
+  };
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => { if (b.dataset.setLang !== LANG) applyLang(b.dataset.setLang); }));
+  const ease = t => 1 - Math.pow(1 - t, 3);
+
+  // ---------- header + active section ----------
+  const hdr = document.getElementById('hdr');
+  const heroEl = document.querySelector('.hero'), heroBg = document.querySelector('.hero-bg'), heroWrap = document.querySelector('.hero .wrap');
+  let ticking = false;
+  const frame = () => {
+    ticking = false;
+    const y = window.scrollY;
+    hdr.classList.toggle('solid', y > 40);
+    if (!RM && y < heroEl.offsetHeight) {
+      heroBg.style.transform = `translateY(${y * .28}px) scale(1.08)`;
+      heroWrap.style.transform = `translateY(${y * .12}px)`;
+      heroWrap.style.opacity = Math.max(0, 1 - y / 520);
+    }
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  frame(); addEventListener('scroll', onScroll, {passive:true});
+
+  const navLinks = [...document.querySelectorAll('.navpill a')];
+  const secObs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)); });
+  }, {rootMargin:'-35% 0px -55% 0px'});
+  ['skills','work','projects','notes','about'].forEach(id => { const s = document.getElementById(id); if (s) secObs.observe(s); });
+
+  // ---------- counters ----------
+  const parseNum = (s) => {
+    const m = s.trim().match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/); if (!m) return null;
+    const raw = m[2], dec = (raw.split('.')[1] || '').length;
+    return {pre:m[1], suf:m[3], val:parseFloat(raw.replace(/,/g,'')), dec, comma:raw.includes(',')};
+  };
+  const fmt = (n, p) => { let s = n.toFixed(p.dec); if (p.comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ','); return p.pre + s + p.suf; };
+  const counters = new Map();
+  document.querySelectorAll('.kpi .v, .br .v, .proof .shimmer').forEach(el => {
+    if (el.classList.contains('shimmer')) return; // leave sentence alone
+    const p = parseNum(el.textContent); if (!p) return; counters.set(el, p);
+    if (!RM) el.textContent = fmt(0, p);
+  });
+  // each counter carries a generation token so a reset cancels any run still in flight
+  const gen = new WeakMap();
+  const runCounter = (el, delay = 0, dur = 1100) => {
+    const p = counters.get(el); if (!p) return;
+    if (RM) { el.textContent = fmt(p.val, p); return; }
+    const g = (gen.get(el) || 0) + 1; gen.set(el, g);
+    const t0 = performance.now() + delay;
+    const step = now => {
+      if (gen.get(el) !== g) return;
+      const t = Math.min(1, Math.max(0, (now - t0) / dur));
+      el.textContent = fmt(p.val * ease(t), p);
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const resetCounter = el => { const p = counters.get(el); if (!p) return; gen.set(el, (gen.get(el) || 0) + 1); el.textContent = fmt(0, p); };
+  const playMock = (mock) => {
+    mock.querySelectorAll('.kpi .v').forEach((el, i) => runCounter(el, 150 + i * 120, 1200));
+    mock.querySelectorAll('.br').forEach((row, i) => {
+      const bar = row.querySelector('.b'), val = row.querySelector('.v');
+      bar.style.transitionDelay = (i * 90) + 'ms' + (bar.classList.contains('top') ? ',1100ms' : '');
+      runCounter(val, i * 90, 900);
+    });
+  };
+  const resetMock = (mock) => {
+    mock.querySelectorAll('.kpi .v, .br .v').forEach(resetCounter);
+    // bars collapse in reverse order so the exit mirrors the entrance
+    const rows = mock.querySelectorAll('.br');
+    rows.forEach((row, i) => { const bar = row.querySelector('.b'); bar.style.transitionDelay = ((rows.length - 1 - i) * 60) + 'ms' + (bar.classList.contains('top') ? ',0ms' : ''); });
+  };
+
+  // ---------- scroll reveal (reversible) ----------
+  const rv = [...document.querySelectorAll('.rv')];
+  const setState = (el, on) => {
+    if (el.classList.contains('in') === on) return;
+    const sibs = [...el.parentElement.children].filter(c => c.classList.contains('rv'));
+    const idx = sibs.indexOf(el);
+    // enter staggered forward; leave staggered in reverse so groups fold away the way they unfolded
+    el.style.transitionDelay = (on ? idx * 90 : (sibs.length - 1 - idx) * 60) + 'ms';
+    el.classList.toggle('in', on);
+    if (el.classList.contains('mock')) on ? playMock(el) : resetMock(el);
+  };
+  if (RM) rv.forEach(el => { el.classList.add('in'); if (el.classList.contains('mock')) playMock(el); });
+  else {
+    const io = new IntersectionObserver(es => es.forEach(e => setState(e.target, e.isIntersecting)), {threshold:0, rootMargin:'-8% 0px -8% 0px'});
+    rv.forEach(el => io.observe(el));
+  }
+
+  // replay the feature-importance chart
+  const replay = document.getElementById('replay');
+  if (replay) replay.addEventListener('click', () => {
+    const mock = replay.closest('.mock');
+    mock.classList.remove('in'); mock.style.transitionDelay = '0ms';
+    resetMock(mock);
+    mock.querySelectorAll('.br .b').forEach(b => b.style.transitionDelay = '0ms');
+    void mock.offsetWidth;
+    mock.classList.add('in'); playMock(mock);
+  });
+
+  // ---------- orbit diagram hover linking ----------
+  const orb = document.querySelector('.orb');
+  if (orb) {
+    const link = (key, on) => orb.querySelectorAll(`[data-key="${key}"]`).forEach(n => n.classList.toggle('hi', on));
+    orb.querySelectorAll('[data-key]').forEach(n => {
+      n.addEventListener('mouseenter', () => link(n.dataset.key, true));
+      n.addEventListener('mouseleave', () => link(n.dataset.key, false));
+    });
+  }
+
+  // ---------- accordions with height animation ----------
+  document.querySelectorAll('details').forEach(d => {
+    const s = d.querySelector('summary'), b = d.querySelector('.acc-body');
+    s.addEventListener('click', e => {
+      e.preventDefault();
+      if (d.dataset.anim) return;
+      if (RM) { d.open = !d.open; return; }
+      d.dataset.anim = '1';
+      if (d.open) {
+        const h = b.offsetHeight;
+        b.animate([{height:h+'px',opacity:1},{height:'0px',paddingBottom:'0px',opacity:0}], {duration:240, easing:'ease'}).onfinish = () => { d.open = false; delete d.dataset.anim; };
+      } else {
+        d.open = true; const h = b.offsetHeight;
+        b.animate([{height:'0px',paddingBottom:'0px',opacity:0},{height:h+'px',opacity:1}], {duration:340, easing:'cubic-bezier(.23,1,.32,1)'}).onfinish = () => { delete d.dataset.anim; };
+      }
+    });
+  });
+
+  // ---------- pixel strips (seeded, stable) ----------
+  const rng = (s) => () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
+  function strip(id, palette, seed, dir) {
+    const c = document.getElementById(id); if (!c) return;
+    const draw = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 2);
+      const w = c.clientWidth, h = c.clientHeight; if (!w || !h) return;
+      c.width = w * dpr; c.height = h * dpr;
+      const ctx = c.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+      const r = rng(seed), cell = 6, cols = Math.ceil(w/cell), rows = Math.ceil(h/cell);
+      for (let x=0;x<cols;x++){
+        const col = palette[Math.floor(r()*palette.length)], bias = r();
+        for (let y=0;y<rows;y++){
+          const depth = dir==='down' ? y/rows : 1 - y/rows;
+          const p = Math.pow(1-depth, 2.2) * (0.35 + bias*0.9);
+          if (r() < p) { ctx.fillStyle = r()<.85 ? col : palette[Math.floor(r()*palette.length)]; ctx.fillRect(x*cell, y*cell, cell, cell); }
+        }
+      }
+    };
+    draw(); addEventListener('resize', draw);
+  }
+  strip('px-hero', ['#f5f5f2','#f5f5f2','#eef0ea','#dfe6ec','#c6d9ee','#9fc3ea','#f2e6e6','#e8d9d3','#b8b0a4','#f5f5f2'], 7, 'up');
+  strip('px-band-top', ['#f5f5f2','#f5f5f2','#e9eef3','#cfe0f3','#f5f5f2','#ffffff'], 21, 'down');
+  strip('px-band-bot', ['#f5f5f2','#f5f5f2','#e9eef3','#cfe0f3','#f5f5f2','#ffffff'], 33, 'up');
+  strip('px-foot', ['#86ceff','#6fbdf7','#9dd8ff','#ffffff','#e6f4ff','#86ceff','#b7e2ff'], 5, 'up');
+
+  // ---------- word search ----------
+  const words = ['PYTHON','SQL','PANDAS','TABLEAU','LIGHTGBM','SHAP','LANGCHAIN','EXCEL','POWERBI','CODEX'];
+  const COLS=16, ROWS=10, ws=document.getElementById('ws');
+  const grid = Array.from({length:ROWS},()=>Array(COLS).fill(''));
+  const r2 = rng(99), placed=[];
+  const rowsOrder = [0,1,2,3,4,5,6,7,8,9].sort(()=>r2()-.5);
+  words.forEach((w,i)=>{ const row=rowsOrder[i%ROWS]; const start=Math.floor(r2()*(COLS-w.length+1)); for(let k=0;k<w.length;k++) grid[row][start+k]=w[k]; placed.push({w,row,start}); });
+  const AZ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for(let y=0;y<ROWS;y++) for(let x=0;x<COLS;x++) if(!grid[y][x]) grid[y][x]=AZ[Math.floor(r2()*26)];
+  const cells=[];
+  grid.forEach((row,y)=>row.forEach((ch,x)=>{ const s=document.createElement('span'); s.textContent=ch; ws.appendChild(s); cells.push(s); }));
+  placed.forEach((p,i)=>{ for(let k=0;k<p.w.length;k++){ const c=cells[p.row*COLS+p.start+k]; c.classList.add('word'); c.dataset.w=i; c.title=p.w; } });
+  const ring=document.createElement('div'); ring.className='ring'; ws.appendChild(ring);
+  let wi=0, pausedUntil=0, wsStarted=false;
+  const showWord=(idx)=>{
+    if (idx!==undefined) wi=idx;
+    cells.forEach(c=>c.classList.remove('on'));
+    const {w,row,start}=placed[wi%placed.length];
+    const first=cells[row*COLS+start], last=cells[row*COLS+start+w.length-1];
+    for(let k=0;k<w.length;k++) cells[row*COLS+start+k].classList.add('on');
+    const a=first.getBoundingClientRect(), b=last.getBoundingClientRect(), p=ws.getBoundingClientRect();
+    ring.style.left=(a.left-p.left-4)+'px'; ring.style.top=(a.top-p.top-2)+'px';
+    ring.style.width=(b.right-a.left+8)+'px'; ring.style.height=(a.height+4)+'px'; ring.classList.add('show');
+  };
+  ws.addEventListener('click', e=>{ const t=e.target.closest('span.word'); if(!t) return; pausedUntil=performance.now()+6000; showWord(+t.dataset.w); });
+  const tick=()=>{ if(performance.now()>pausedUntil){ wi++; showWord(); } };
+  const startWs=()=>{ if(wsStarted) return; wsStarted=true; showWord(0); if(!RM) setInterval(tick, 1800); };
+  if (RM) startWs(); else { const wsObs=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ startWs(); wsObs.disconnect(); } },{threshold:.3}); wsObs.observe(ws); }
+  addEventListener('resize', ()=>{ if(wsStarted) showWord(); });
+
+  // ---------- tilt cards ----------
+  const tilt = (el, ry, rx, glare) => {
+    if (!matchMedia('(hover:hover)').matches || RM) return;
+    el.addEventListener('mousemove', e => {
+      const b=el.getBoundingClientRect(), px=(e.clientX-b.left)/b.width, py=(e.clientY-b.top)/b.height;
+      el.style.transform=`perspective(700px) rotateY(${(px-.5)*ry}deg) rotateX(${(.5-py)*rx}deg) translateY(-2px)`;
+      if (glare) { el.style.setProperty('--gx',(px*100)+'%'); el.style.setProperty('--gy',(py*100)+'%'); }
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform=''; });
+  };
+  const holo=document.getElementById('holo'); if (holo) tilt(holo, 12, 10, true);
+
+  // ---------- field notes: lightbox that grows out of the tapped card ----------
+  // duplicate each row once so the loop is seamless (clones are decorative for assistive tech)
+  document.querySelectorAll('.marquee .track').forEach(tr => {
+    [...tr.children].forEach(c => { const k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); k.tabIndex = -1; tr.appendChild(k); });
+  });
+  const lb = document.getElementById('lb');
+  if (lb) {
+    const frame = document.getElementById('lb-frame'), img = document.getElementById('lb-img');
+    const capIdx = document.getElementById('lb-idx'), capTitle = document.getElementById('lb-title');
+    const notes = [...document.querySelectorAll('.note')];
+    // unique notes (each row is duplicated for the loop); browse by data-i
+    const byIndex = new Map(); notes.forEach(n => { if (!byIndex.has(n.dataset.i)) byIndex.set(n.dataset.i, n); });
+    const order = [...byIndex.keys()];
+    let current = null, origin = null, busy = false;
+
+    const setContent = (note) => {
+      img.src = note.dataset.full || note.querySelector('img').src;
+      img.alt = note.querySelector('img').alt;
+      capIdx.textContent = `${t('Field note')} ${note.dataset.n} / 76`;
+      capTitle.textContent = t(note.dataset.title);
+    };
+    const flipFrom = (rect) => {
+      // FLIP: place the frame over the card's image, then release it to its natural position
+      const last = frame.getBoundingClientRect();
+      const sx = rect.width / last.width, sy = rect.height / last.height;
+      frame.style.transition = 'none';
+      frame.style.transform = `translate(${rect.left - last.left}px, ${rect.top - last.top}px) scale(${sx}, ${sy})`;
+      frame.style.borderRadius = '4px';
+      void frame.offsetWidth;
+      frame.style.transition = RM ? 'none' : 'transform .55s cubic-bezier(.23,1,.32,1), border-radius .55s';
+      frame.style.transform = 'none'; frame.style.borderRadius = '';
+    };
+    const open = (note) => {
+      if (busy) return; busy = true;
+      current = note.dataset.i; origin = note;
+      setContent(note);
+      const from = note.querySelector('img').getBoundingClientRect();
+      lb.hidden = false; document.body.classList.add('lb-open');
+      note.classList.add('dim'); byIndex.get(current).classList.add('dim');
+      const go = () => { flipFrom(from); requestAnimationFrame(() => lb.classList.add('on')); setTimeout(() => { busy = false; }, 600); };
+      if (img.complete && img.naturalWidth) go(); else { img.onload = () => { img.onload = null; go(); }; }
+    };
+    const close = () => {
+      if (busy || lb.hidden) return; busy = true;
+      lb.classList.remove('on');
+      const target = origin && origin.isConnected ? origin : byIndex.get(current);
+      const to = target.querySelector('img').getBoundingClientRect(), last = frame.getBoundingClientRect();
+      frame.style.transition = RM ? 'none' : 'transform .45s cubic-bezier(.4,0,.2,1), border-radius .45s';
+      frame.style.transform = `translate(${to.left - last.left}px, ${to.top - last.top}px) scale(${to.width / last.width}, ${to.height / last.height})`;
+      frame.style.borderRadius = '4px';
+      setTimeout(() => {
+        lb.hidden = true; document.body.classList.remove('lb-open');
+        notes.forEach(n => n.classList.remove('dim'));
+        frame.style.transition = 'none'; frame.style.transform = 'none'; frame.style.borderRadius = '';
+        busy = false;
+      }, RM ? 0 : 460);
+    };
+    const step = (d) => {
+      if (busy || lb.hidden) return;
+      const i = (order.indexOf(current) + d + order.length) % order.length;
+      current = order[i]; const note = byIndex.get(current); origin = note;
+      notes.forEach(n => n.classList.toggle('dim', n.dataset.i === current));
+      frame.classList.remove('swap'); void frame.offsetWidth;
+      setContent(note); frame.classList.add('swap');
+    };
+    notes.forEach(n => n.addEventListener('click', () => open(n)));
+    document.getElementById('lb-x').addEventListener('click', close);
+    lb.querySelector('.lb-bg').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', () => step(-1));
+    document.getElementById('lb-next').addEventListener('click', () => step(1));
+    addEventListener('keydown', e => {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowRight') step(1); else if (e.key === 'ArrowLeft') step(-1);
+    });
+    let tx = null;
+    lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; tx = null; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1); });
+  }
+
+  // ---------- résumé download menu ----------
+  const rmenu = document.getElementById('rmenu'), rbtn = document.getElementById('rbtn');
+  if (rmenu && rbtn) {
+    const rdrop = rmenu.querySelector('.rdrop');
+    const setOpen = (o) => { rmenu.classList.toggle('open', o); rdrop.hidden = !o; rbtn.setAttribute('aria-expanded', String(o)); };
+    rbtn.addEventListener('click', e => { e.stopPropagation(); setOpen(rdrop.hidden); });
+    rdrop.addEventListener('click', () => setTimeout(() => setOpen(false), 150));
+    addEventListener('click', e => { if (!rmenu.contains(e.target)) setOpen(false); });
+    addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  // ---------- creator collaborations: marquee previews + video lightbox ----------
+  const cstrip = document.getElementById('cstrip');
+  if (cstrip) {
+    const EMBED = 1;
+    const MAX_LIVE = 3;
+    const previewSrc = (id, start) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&controls=0&start=${start}&loop=1&playlist=${id}&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1`;
+    const live = new Set();
+    const mount = (thumb) => {
+      if (live.has(thumb) || live.size >= MAX_LIVE) return;
+      const tile = thumb.closest('.cit'), f = document.createElement('iframe');
+      f.src = previewSrc(tile.dataset.id, tile.dataset.start || 20);
+      f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true');
+      f.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0';
+      thumb.insertBefore(f, thumb.firstChild); thumb.classList.add('live'); live.add(thumb);
+    };
+    const unmount = (thumb) => { const f = thumb.querySelector('iframe'); if (f) f.remove(); thumb.classList.remove('live'); live.delete(thumb); };
+    // hit layer so taps land on the tile, not the player
+    cstrip.querySelectorAll('.cit.yt .cthumb').forEach(th => { const h = document.createElement('span'); h.className = 'hit'; h.setAttribute('aria-hidden', 'true'); th.appendChild(h); });
+    if (EMBED && !RM) {
+      const pio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? mount(e.target) : unmount(e.target)), {rootMargin: '0px 200px 0px 200px', threshold: 0});
+      cstrip.querySelectorAll('.cit.yt .cthumb').forEach(th => pio.observe(th));
+      // pause previews entirely while the tab is hidden
+      document.addEventListener('visibilitychange', () => { if (document.hidden) [...live].forEach(unmount); });
+    }
+    // video lightbox
+    const vlb = document.getElementById('vlb'), vif = document.getElementById('vlb-if'), vtitle = document.getElementById('vlb-title'), vplat = document.getElementById('vlb-plat');
+    const openVideo = (tile) => {
+      const id = tile.dataset.id;
+      if (!EMBED) { window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener'); return; }
+      vtitle.textContent = tile.querySelector('.ccap b').textContent; vplat.textContent = tile.querySelector('.cplat').textContent;
+      vif.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+      vlb.hidden = false; document.body.classList.add('lb-open');
+      requestAnimationFrame(() => vlb.classList.add('on'));
+    };
+    const closeVideo = () => { if (vlb.hidden) return; vlb.classList.remove('on'); setTimeout(() => { vlb.hidden = true; vif.src = ''; document.body.classList.remove('lb-open'); }, RM ? 0 : 300); };
+    cstrip.addEventListener('click', e => { const tile = e.target.closest('.cit.yt'); if (tile) { e.preventDefault(); openVideo(tile); } });
+    cstrip.addEventListener('keydown', e => { const tile = e.target.closest('.cit.yt'); if (tile && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openVideo(tile); } });
+    document.getElementById('vlb-x').addEventListener('click', closeVideo);
+    document.getElementById('vlb-bg').addEventListener('click', closeVideo);
+    addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+  }
+  applyLang(LANG);
+})();
+</script>
+
+</body>
+</html>

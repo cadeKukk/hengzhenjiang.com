@@ -1,0 +1,1162 @@
+[
+{
+"ctx": "a.brand",
+"en": "Hengzhen Jiang"
+},
+{
+"ctx": "a",
+"en": "Skills"
+},
+{
+"ctx": "a",
+"en": "Work"
+},
+{
+"ctx": "a",
+"en": "Projects"
+},
+{
+"ctx": "a",
+"en": "Notes"
+},
+{
+"ctx": "a",
+"en": "About"
+},
+{
+"ctx": "button.btn",
+"en": "Résumé"
+},
+{
+"ctx": "div.rh",
+"en": "Download · PDF"
+},
+{
+"ctx": "a",
+"en": "English résumé"
+},
+{
+"ctx": "small",
+"en": "EN"
+},
+{
+"ctx": "small",
+"en": "ZH"
+},
+{
+"ctx": "a.btn",
+"en": "Get in touch"
+},
+{
+"ctx": "p.lead",
+"en": "Audience research, data analysis, and practical AI systems. MEng in Financial Technology at Duke University."
+},
+{
+"ctx": "a.btn",
+"en": "See selected work"
+},
+{
+"ctx": "a.hint",
+"en": "Scroll to the work"
+},
+{
+"ctx": "h2.h2",
+"en": "Timeline"
+},
+{
+"ctx": "div.eyebrow",
+"en": "Education"
+},
+{
+"ctx": "span.idx",
+"en": "AUG 2025 — JUN 2027"
+},
+{
+"ctx": "span.chip",
+"en": "In progress"
+},
+{
+"ctx": "h3",
+"en": "Duke University"
+},
+{
+"ctx": "p.deg",
+"en": "Master of Engineering in Financial Technology"
+},
+{
+"ctx": "p.meta",
+"en": "DURHAM, NORTH CAROLINA"
+},
+{
+"ctx": "p.det",
+"en": "Coursework: Machine Learning, Statistical Analysis, Asset Pricing and Risk Management, Python Programming, Data Processing and Algorithms."
+},
+{
+"ctx": "span.idx",
+"en": "SEP 2021 — JUN 2025"
+},
+{
+"ctx": "span.chip",
+"en": "Completed"
+},
+{
+"ctx": "h3",
+"en": "Shanghai Lixin University of Accounting and Finance"
+},
+{
+"ctx": "p.deg",
+"en": "Bachelor of Economics in Financial Engineering"
+},
+{
+"ctx": "p.meta",
+"en": "SHANGHAI, CHINA"
+},
+{
+"ctx": "p.det",
+"en": "Honors: Shanghai Outstanding Graduate; Outstanding Student Leader."
+},
+{
+"ctx": "div.eyebrow",
+"en": "2021 — 2027 · Newest first"
+},
+{
+"ctx": "div.tl-when",
+"en": "Jul — Aug 2026"
+},
+{
+"ctx": "b",
+"en": "Multimodal Short-Video Content Analysis Agent"
+},
+{
+"ctx": "span.sub",
+"en": "Agent workflow for AIGC growth and creator-content review"
+},
+{
+"ctx": "span.tl-kind",
+"en": "Project"
+},
+{
+"ctx": "div.tl-when",
+"en": "Jun — Aug 2026"
+},
+{
+"ctx": "b",
+"en": "Lovart · International KOL Operations Intern"
+},
+{
+"ctx": "span.sub",
+"en": "Creator campaigns across Europe and North America, plus a LangChain workflow"
+},
+{
+"ctx": "span.tl-kind",
+"en": "Internship"
+},
+{
+"ctx": "div.tl-when",
+"en": "Jan — Apr 2026"
+},
+{
+"ctx": "b",
+"en": "Ethereum Token Fraud Detection"
+},
+{
+"ctx": "span.sub",
+"en": "27 behavioral features from 2.2M on-chain transactions, LightGBM at 0.96 AUC"
+},
+{
+"ctx": "b",
+"en": "iQIYI International · North America Marketing Operations Intern"
+},
+{
+"ctx": "span.sub",
+"en": "33,876-response annual user study across English-speaking markets"
+},
+{
+"ctx": "div.tl-when",
+"en": "Aug 2025 → 2027"
+},
+{
+"ctx": "span.when-inline",
+"en": "Aug 2025 → Jun 2027"
+},
+{
+"ctx": "b",
+"en": "Duke University · MEng, Financial Technology"
+},
+{
+"ctx": "span.sub",
+"en": "Machine learning, statistics, asset pricing, and data engineering coursework"
+},
+{
+"ctx": "div.tl-when",
+"en": "Feb — May 2025"
+},
+{
+"ctx": "b",
+"en": "Dewu · Business Analysis Intern, Beauty Card Program"
+},
+{
+"ctx": "span.sub",
+"en": "Segmentation, A/B-tested outreach, and a live activation dashboard"
+},
+{
+"ctx": "div.tl-when",
+"en": "May — Aug 2024"
+},
+{
+"ctx": "b",
+"en": "SDIC Securities · Industry Research Intern, Healthcare"
+},
+{
+"ctx": "span.sub",
+"en": "Market sizing and a three-scenario valuation model for a 10,000-word report"
+},
+{
+"ctx": "div.tl-when",
+"en": "Sep 2021 — Jun 2025"
+},
+{
+"ctx": "b",
+"en": "Shanghai Lixin University · BEcon, Financial Engineering"
+},
+{
+"ctx": "span.sub",
+"en": "Shanghai Outstanding Graduate · Outstanding Student Leader"
+},
+{
+"ctx": "h2.rv",
+"en": "Built with a working toolkit"
+},
+{
+"ctx": "p.sub",
+"en": "From querying and modeling to automating and communicating. Ten of the tools are hidden in the grid."
+},
+{
+"ctx": "span.eyebrow",
+"en": "Data & analytics"
+},
+{
+"ctx": "h4",
+"en": "SQL, Python, Excel, Tableau, Power BI"
+},
+{
+"ctx": "p",
+"en": "Pandas, NumPy, scikit-learn, and Matplotlib in Python; VBA and PivotTables in Excel; A/B testing on live campaigns."
+},
+{
+"ctx": "span.eyebrow",
+"en": "Modeling & interpretation"
+},
+{
+"ctx": "h4",
+"en": "LightGBM, SHAP, regression, DCF"
+},
+{
+"ctx": "p",
+"en": "Five-fold cross-validation, feature attribution, and three-scenario valuation models with sensitivity analysis."
+},
+{
+"ctx": "span.eyebrow",
+"en": "AI & automation"
+},
+{
+"ctx": "h4",
+"en": "LangChain, agent workflows, Codex"
+},
+{
+"ctx": "p",
+"en": "Prompt engineering, multimodal content analysis, and API integration that keep records and teams in sync."
+},
+{
+"ctx": "span.eyebrow",
+"en": "Languages & communication"
+},
+{
+"ctx": "h4",
+"en": "Mandarin (native), English (TOEFL 105)"
+},
+{
+"ctx": "p",
+"en": "Research reports, content strategy, and creator operations across Chinese and English-speaking markets."
+},
+{
+"ctx": "div.eyebrow",
+"en": "Work experience"
+},
+{
+"ctx": "h2.h2",
+"en": "Four internships,"
+},
+{
+"ctx": "span",
+"en": "and what each one shipped."
+},
+{
+"ctx": "div.eyebrow",
+"en": "1.0 — Lovart · Jun — Aug 2026"
+},
+{
+"ctx": "h3",
+"en": "Creator ecosystems,"
+},
+{
+"ctx": "span",
+"en": "made operational"
+},
+{
+"ctx": "p.role",
+"en": "International KOL Operations Intern · Beijing Qidian Xingyu Technology · Global growth and AIGC product marketing"
+},
+{
+"ctx": "p",
+"en": "For Lovart's U.S. and European campaigns, Hengzhen paired creator operations with AI workflow design, from positioning and content review to collaboration-record automation, for an AIGC product expanding in Western markets."
+},
+{
+"ctx": "summary",
+"en": "Campaign strategy"
+},
+{
+"ctx": "div.acc-body",
+"en": "Planned the Lovart × SMB and Lovart × Seedance 2.5 campaigns for Europe and North America. Analyzed competitors and creator segments to position Lovart's brand-design and AI-video capabilities for SMB owners, designers, and video creators."
+},
+{
+"ctx": "summary",
+"en": "Creator operations"
+},
+{
+"ctx": "div.acc-body",
+"en": "Managed creator partnerships across TikTok, Instagram, and YouTube, reaching 500+ creators. Delivered 85 sponsored posts with 10M+ total impressions while keeping Instagram and YouTube CPMs near $15 and $100."
+},
+{
+"ctx": "summary",
+"en": "Content quality"
+},
+{
+"ctx": "div.acc-body",
+"en": "Reviewed product demonstrations, messaging, and creative quality against product-understanding and expression standards, with feedback rounds before publishing."
+},
+{
+"ctx": "summary",
+"en": "Workflow automation"
+},
+{
+"ctx": "div.acc-body",
+"en": "Built a LangChain-based KOL information-processing agent and integrated Python with Feishu APIs to synchronize collaboration records, deduplicate matches, and backfill publishing data."
+},
+{
+"ctx": "span",
+"en": "LangChain"
+},
+{
+"ctx": "span",
+"en": "Python"
+},
+{
+"ctx": "span",
+"en": "Feishu API"
+},
+{
+"ctx": "span.t",
+"en": "Collaboration record sync"
+},
+{
+"ctx": "span.idx",
+"en": "LANGCHAIN → FEISHU"
+},
+{
+"ctx": "div.l",
+"en": "Creators reached"
+},
+{
+"ctx": "div.d",
+"en": "US · EU"
+},
+{
+"ctx": "div.l",
+"en": "Sponsored posts"
+},
+{
+"ctx": "div.d",
+"en": "reviewed"
+},
+{
+"ctx": "div.l",
+"en": "Total impressions"
+},
+{
+"ctx": "div.v",
+"en": "10M+"
+},
+{
+"ctx": "div.d",
+"en": "campaigns"
+},
+{
+"ctx": "th",
+"en": "Record"
+},
+{
+"ctx": "th",
+"en": "Action"
+},
+{
+"ctx": "th",
+"en": "Status"
+},
+{
+"ctx": "td",
+"en": "Design-segment creator · YouTube"
+},
+{
+"ctx": "td",
+"en": "Backfill publish date"
+},
+{
+"ctx": "span.chip",
+"en": "Synced"
+},
+{
+"ctx": "td",
+"en": "SMB-segment creator · TikTok"
+},
+{
+"ctx": "td",
+"en": "Match duplicate entry"
+},
+{
+"ctx": "span.chip",
+"en": "Merged"
+},
+{
+"ctx": "td",
+"en": "Video-creator segment · Instagram"
+},
+{
+"ctx": "td",
+"en": "Sync collaboration terms"
+},
+{
+"ctx": "td",
+"en": "New inbound · form submission"
+},
+{
+"ctx": "td",
+"en": "Create record"
+},
+{
+"ctx": "span.chip",
+"en": "Running"
+},
+{
+"ctx": "div.mock-cap",
+"en": "Rows shown are illustrative of the workflow's actions, not real creator records."
+},
+{
+"ctx": "div.eyebrow",
+"en": "1.5 — Selected creator collaborations"
+},
+{
+"ctx": "p",
+"en": "Nineteen pieces from the Lovart × SMB and Lovart × Seedance 2.5 campaigns. YouTube videos preview as they pass; tap one to watch it. Instagram, TikTok, and X open on their platform. Hover to pause."
+},
+{
+"ctx": "div.track",
+"en": "{{COLLABS}}"
+},
+{
+"ctx": "div.eyebrow",
+"en": "2.0 — iQIYI International · Jan — Apr 2026"
+},
+{
+"ctx": "h3",
+"en": "What English-region viewers want,"
+},
+{
+"ctx": "span",
+"en": "and how they find it"
+},
+{
+"ctx": "p.role",
+"en": "North America Marketing Operations Intern · Audience research"
+},
+{
+"ctx": "p",
+"en": "For iQIYI's annual English-region user research, Hengzhen built a framework connecting content preference, audience segmentation, and growth pathways, then analyzed 33,876 completed responses in Python across content interests, membership status, age, country, and discovery channels."
+},
+{
+"ctx": "summary",
+"en": "Content preference"
+},
+{
+"ctx": "div.acc-body",
+"en": "Compared awareness, viewing interest, and preference across Asian dramas, short-form dramas, animation, and AI content. Content does not play a single role in growth: Chinese dramas form a consumption base, BL/GL resonates with younger members, Korean dramas and animation show stronger acquisition potential."
+},
+{
+"ctx": "summary",
+"en": "Audience segmentation"
+},
+{
+"ctx": "div.acc-body",
+"en": "Cross-analyzed country, age, membership status, and ethnicity to find where the same content carries different value."
+},
+{
+"ctx": "summary",
+"en": "Growth pathways"
+},
+{
+"ctx": "div.acc-body",
+"en": "Short-form drama is discovered more often through social media. For non-users, social channels are the opening to create discovery and guide interest toward iQIYI."
+},
+{
+"ctx": "summary",
+"en": "Output"
+},
+{
+"ctx": "div.acc-body",
+"en": "A research report informing English-region content selection, off-platform discovery, and product consideration."
+},
+{
+"ctx": "span",
+"en": "Survey design"
+},
+{
+"ctx": "span",
+"en": "Segmentation"
+},
+{
+"ctx": "span",
+"en": "Visualization"
+},
+{
+"ctx": "span.t",
+"en": "English-region annual study"
+},
+{
+"ctx": "span.idx",
+"en": "iQIYI INTERNATIONAL"
+},
+{
+"ctx": "div.l",
+"en": "Completed responses"
+},
+{
+"ctx": "div.d",
+"en": "cleaned"
+},
+{
+"ctx": "div.l",
+"en": "Content directions"
+},
+{
+"ctx": "div.d",
+"en": "compared"
+},
+{
+"ctx": "div.l",
+"en": "Analysis layers"
+},
+{
+"ctx": "div.d",
+"en": "linked"
+},
+{
+"ctx": "span.hot",
+"en": "Asian dramas"
+},
+{
+"ctx": "span",
+"en": "Short-form dramas"
+},
+{
+"ctx": "span",
+"en": "Animation"
+},
+{
+"ctx": "span",
+"en": "AI content"
+},
+{
+"ctx": "span",
+"en": "What role does each direction play in English-region markets?"
+},
+{
+"ctx": "span",
+"en": "Country · age · membership status · ethnicity"
+},
+{
+"ctx": "span",
+"en": "Where people discover content and how they enter iQIYI"
+},
+{
+"ctx": "div.mock-cap",
+"en": "Different content categories serve different moments in the user journey."
+},
+{
+"ctx": "div.eyebrow",
+"en": "3.0 — Dewu · Feb — May 2025"
+},
+{
+"ctx": "h3",
+"en": "From behavioral data"
+},
+{
+"ctx": "span",
+"en": "to better activation"
+},
+{
+"ctx": "p.role",
+"en": "Business Analysis Intern · Beauty Card Program · Commercial analytics"
+},
+{
+"ctx": "p",
+"en": "At Dewu, Hengzhen used SQL and Python to segment beauty-card users, design differentiated outreach, and measure results through A/B testing and a live funnel dashboard, making activation more targeted and merchant incentives more measurable."
+},
+{
+"ctx": "div.acc-body",
+"en": "Queried and cleaned behavioral data with SQL and Python, then separated high-intent and broader-intent audiences by purchase frequency and brand-browsing depth."
+},
+{
+"ctx": "summary",
+"en": "Outreach and testing"
+},
+{
+"ctx": "div.acc-body",
+"en": "Designed differentiated SMS outreach and validated it through A/B testing: 500+ new card activations and roughly a 12% month-over-month lift in activation rate."
+},
+{
+"ctx": "summary",
+"en": "Merchant selection"
+},
+{
+"ctx": "div.acc-body",
+"en": "Built a multi-criteria Excel model to select campaign merchants, using placement exposure as the incentive for merchant discounts."
+},
+{
+"ctx": "summary",
+"en": "Monitoring"
+},
+{
+"ctx": "div.acc-body",
+"en": "Built a BI dashboard for activation and SKU-redemption funnels, shifting placement allocation from static ranking to data-driven iteration and reducing subsidy costs by about 15%."
+},
+{
+"ctx": "span",
+"en": "SQL"
+},
+{
+"ctx": "span",
+"en": "Pandas"
+},
+{
+"ctx": "span",
+"en": "A/B testing"
+},
+{
+"ctx": "span",
+"en": "Excel"
+},
+{
+"ctx": "span",
+"en": "BI"
+},
+{
+"ctx": "span.t",
+"en": "Beauty card · activation funnel"
+},
+{
+"ctx": "span.idx",
+"en": "DEWU · COMMERCIAL ANALYTICS"
+},
+{
+"ctx": "div.l",
+"en": "New cardholders"
+},
+{
+"ctx": "div.d",
+"en": "contributed"
+},
+{
+"ctx": "div.l",
+"en": "Activation lift"
+},
+{
+"ctx": "div.d",
+"en": "month over month"
+},
+{
+"ctx": "div.l",
+"en": "Subsidy cost"
+},
+{
+"ctx": "div.d",
+"en": "approx."
+},
+{
+"ctx": "div.l",
+"en": "A · generic SMS"
+},
+{
+"ctx": "div.n",
+"en": "baseline"
+},
+{
+"ctx": "div.l",
+"en": "B · segmented SMS"
+},
+{
+"ctx": "div.n",
+"en": "+12% activation"
+},
+{
+"ctx": "div",
+"en": "Card issued"
+},
+{
+"ctx": "div",
+"en": "Activated"
+},
+{
+"ctx": "div",
+"en": "SKU redeemed"
+},
+{
+"ctx": "div.mock-cap",
+"en": "Funnel widths are schematic. Reported figures are the ones above."
+},
+{
+"ctx": "div.eyebrow",
+"en": "4.0 — SDIC Securities · May — Aug 2024"
+},
+{
+"ctx": "h3",
+"en": "Sizing two ophthalmic markets"
+},
+{
+"ctx": "span",
+"en": "and valuing the leader"
+},
+{
+"ctx": "p.role",
+"en": "Industry Research Intern · Healthcare research group"
+},
+{
+"ctx": "p",
+"en": "At SDIC Securities, Hengzhen used Choice terminal data and penetration-rate benchmarks to assess the intraocular-lens and orthokeratology-lens markets, then built a valuation model for Aibo Medical to support a 10,000-word equity research report and investment recommendation."
+},
+{
+"ctx": "summary",
+"en": "Market sizing"
+},
+{
+"ctx": "div.acc-body",
+"en": "A top-down comparison of domestic and overseas penetration rates showed both markets early in adoption, with a credible domestic-substitution case. Regression forecasts of 2026 market size kept error within ±8%."
+},
+{
+"ctx": "summary",
+"en": "Valuation"
+},
+{
+"ctx": "div.acc-body",
+"en": "Broke down Aibo Medical's segment revenue and margin trends, set growth assumptions by competitive position, and built a three-scenario DCF plus P/E model with sensitivity analysis on the key variables."
+},
+{
+"ctx": "div.acc-body",
+"en": "A 10,000-word deep-dive report with an investment recommendation for the research group."
+},
+{
+"ctx": "span",
+"en": "Choice terminal"
+},
+{
+"ctx": "span",
+"en": "Regression"
+},
+{
+"ctx": "span",
+"en": "DCF"
+},
+{
+"ctx": "span.t",
+"en": "Market sizing & valuation"
+},
+{
+"ctx": "span.idx",
+"en": "SDIC · HEALTHCARE"
+},
+{
+"ctx": "div.l",
+"en": "Forecast error"
+},
+{
+"ctx": "div.d",
+"en": "2026 market size"
+},
+{
+"ctx": "div.l",
+"en": "DCF scenarios"
+},
+{
+"ctx": "div.d",
+"en": "plus P/E"
+},
+{
+"ctx": "div.l",
+"en": "Report length"
+},
+{
+"ctx": "div.d",
+"en": "words"
+},
+{
+"ctx": "b",
+"en": "Penetration benchmarks"
+},
+{
+"ctx": "span",
+"en": "Intraocular lens · orthokeratology lens · domestic vs overseas"
+},
+{
+"ctx": "b",
+"en": "Regression forecast"
+},
+{
+"ctx": "span",
+"en": "2026 market size for both tracks, error within ±8%"
+},
+{
+"ctx": "b",
+"en": "Three-scenario DCF + P/E"
+},
+{
+"ctx": "span",
+"en": "Aibo Medical segment revenue, margins, and sensitivity"
+},
+{
+"ctx": "div.mock-cap",
+"en": "Sources: Choice terminal financial and industry data."
+},
+{
+"ctx": "h2.h2",
+"en": "Independent and academic work,"
+},
+{
+"ctx": "span",
+"en": "built to be reused."
+},
+{
+"ctx": "div.eyebrow",
+"en": "5.0 — Academic project · Jan — Apr 2026"
+},
+{
+"ctx": "h3",
+"en": "Telling spam tokens from real ones"
+},
+{
+"ctx": "span",
+"en": "by how they behave"
+},
+{
+"ctx": "p.role",
+"en": "Ethereum Token Fraud Detection · Team research project, Duke University"
+},
+{
+"ctx": "p",
+"en": "For Ethereum tokens that imitate the symbols of verified assets, the team built a behavioral classification prototype. It analyzes roughly 2.2M transfer events to compare risk patterns across token contracts."
+},
+{
+"ctx": "summary",
+"en": "Key finding"
+},
+{
+"ctx": "div.acc-body",
+"en": "Spam tokens cluster in a narrow block window and show concentrated distribution. 34.0% of spam tokens were active in only one block, against 7.2% of legitimate tokens."
+},
+{
+"ctx": "summary",
+"en": "Method"
+},
+{
+"ctx": "div.acc-body",
+"en": "Engineered 27 behavioral features over 3,606 labeled tokens and benchmarked six classifiers. Symbol collisions were used to construct labels, not as model inputs, so the classifier learned on-chain behavior rather than the labeling rule. LightGBM tuned with five-fold cross-validation reached 0.89 macro F1, 0.96 AUC, and a 90% fraud-detection rate."
+},
+{
+"ctx": "summary",
+"en": "What did not work"
+},
+{
+"ctx": "div.acc-body",
+"en": "Semi-supervised expansion with about 8,750 unlabeled tokens did not improve performance. Distribution shift and pseudo-label noise made the supervised model more reliable."
+},
+{
+"ctx": "summary",
+"en": "From model to rules"
+},
+{
+"ctx": "div.acc-body",
+"en": "Applied SHAP to surface fraud signals such as short active windows and concentrated senders, translating them into risk-control rules and a business-cost-aware decision threshold. Contributed across framing, label construction, feature engineering, model comparison, and interpretation."
+},
+{
+"ctx": "span",
+"en": "LightGBM"
+},
+{
+"ctx": "span",
+"en": "SHAP"
+},
+{
+"ctx": "span",
+"en": "scikit-learn"
+},
+{
+"ctx": "span.t",
+"en": "Global feature importance"
+},
+{
+"ctx": "span.idx",
+"en": "MEAN |SHAP| · 541 TEST TOKENS"
+},
+{
+"ctx": "button.replay",
+"en": "Replay"
+},
+{
+"ctx": "div.l",
+"en": "Macro F1"
+},
+{
+"ctx": "div.d",
+"en": "held-out"
+},
+{
+"ctx": "div.l",
+"en": "ROC–AUC"
+},
+{
+"ctx": "div.l",
+"en": "Labeled tokens"
+},
+{
+"ctx": "div.d",
+"en": "27 features"
+},
+{
+"ctx": "span.n",
+"en": "n_distinct_blocks"
+},
+{
+"ctx": "span.n",
+"en": "block_range"
+},
+{
+"ctx": "span.n",
+"en": "value_mean"
+},
+{
+"ctx": "span.n",
+"en": "top1_sender_share"
+},
+{
+"ctx": "span.n",
+"en": "transfers_per_block"
+},
+{
+"ctx": "span.n",
+"en": "n_unique_senders"
+},
+{
+"ctx": "span.n",
+"en": "unique_values_count"
+},
+{
+"ctx": "span.n",
+"en": "n_unique_receivers"
+},
+{
+"ctx": "div.mock-cap",
+"en": "Rather than token names, the model relied most on activity spread, transfer value, and sender concentration."
+},
+{
+"ctx": "div.eyebrow",
+"en": "6.0 — Independent project · Jul — Aug 2026"
+},
+{
+"ctx": "h2.rv",
+"en": "An agent that watches short video"
+},
+{
+"ctx": "span",
+"en": "the way a strategist would"
+},
+{
+"ctx": "p.lead",
+"en": "Designed for overseas AIGC growth and creator-content review. The workflow connects public-content collection, subtitle transcription, key-frame recognition, and LLM analysis to identify hooks, product exposure, sponsorship signals, and calls to action automatically."
+},
+{
+"ctx": "span",
+"en": "Collects public short-form content"
+},
+{
+"ctx": "span",
+"en": "Transcribes subtitles and reads key frames"
+},
+{
+"ctx": "span.live",
+"en": "Flags hooks, product exposure, sponsorships, and CTAs"
+},
+{
+"ctx": "b",
+"en": "Agent template"
+},
+{
+"ctx": "div.l",
+"en": "Name"
+},
+{
+"ctx": "div.f",
+"en": "Content Analysis Agent"
+},
+{
+"ctx": "div.l",
+"en": "Scope"
+},
+{
+"ctx": "div.f",
+"en": "Overseas AIGC growth · creator-content review"
+},
+{
+"ctx": "div.l",
+"en": "Instructions"
+},
+{
+"ctx": "div.f",
+"en": "Collect public short videos, transcribe, sample key frames, and report hooks, product exposure, sponsorship signals, and calls to action."
+},
+{
+"ctx": "span.pill",
+"en": "Trigger · new video"
+},
+{
+"ctx": "b",
+"en": "Content Analysis"
+},
+{
+"ctx": "span",
+"en": "Lead agent"
+},
+{
+"ctx": "span.pill",
+"en": "Pipeline"
+},
+{
+"ctx": "b",
+"en": "Collect"
+},
+{
+"ctx": "span",
+"en": "Public content"
+},
+{
+"ctx": "b",
+"en": "Transcribe"
+},
+{
+"ctx": "span",
+"en": "Subtitles"
+},
+{
+"ctx": "b",
+"en": "Key frames"
+},
+{
+"ctx": "span",
+"en": "Recognition"
+},
+{
+"ctx": "b",
+"en": "Analyze"
+},
+{
+"ctx": "span",
+"en": "LLM pass"
+},
+{
+"ctx": "div.status",
+"en": "Built · Jul — Aug 2026 · Python, LangChain, multimodal models"
+},
+{
+"ctx": "div.eyebrow",
+"en": "Personal moments · Field notes 2024—26"
+},
+{
+"ctx": "h2.rv",
+"en": "Moments that keep"
+},
+{
+"ctx": "span.faint",
+"en": "the perspective wide"
+},
+{
+"ctx": "p.sub",
+"en": "Outside the spreadsheets and notebooks, notes from the places and people that widen the view. Tap any note to open it."
+},
+{
+"ctx": "div.track",
+"en": "{{NOTES_ROW1}}"
+},
+{
+"ctx": "div.track",
+"en": "{{NOTES_ROW2}}"
+},
+{
+"ctx": "div.more",
+"en": "Twenty-four of seventy-six notes"
+},
+{
+"ctx": "i",
+"en": "hover to pause"
+},
+{
+"ctx": "h2",
+"en": "Curious by default."
+},
+{
+"ctx": "span",
+"en": "Technical by choice."
+},
+{
+"ctx": "p",
+"en": "Currently pursuing an MEng in Financial Technology at Duke University. The work moves between user research, creator ecosystems, analytics, and the AI systems that make teams operate more intelligently."
+},
+{
+"ctx": "a",
+"en": "English PDF ↓"
+},
+{
+"ctx": "a",
+"en": "Top"
+},
+{
+"ctx": "a",
+"en": "hengzhen.jiang@duke.edu"
+},
+{
+"ctx": "a",
+"en": "Field notes"
+},
+{
+"ctx": "p.fine",
+"en": "© 2026 Hengzhen Jiang · 姜蘅珍 · Duke University · FinTech"
+},
+{
+"ctx": "br",
+"en": "English version; 中文 to follow"
+},
+{
+"ctx": "p",
+"en": "Open to research, growth, and analytics roles"
+},
+{
+"ctx": "span",
+"en": "starting 2027."
+}
+]
