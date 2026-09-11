@@ -1404,7 +1404,12 @@
     tio.observe(typedEl);
     // language toggle while visible: retype in the new language
     // language switched: the dictionary has already rewritten the text nodes, so drop the old run and type the new text
-    document.addEventListener('langchange', () => { if (!active) return; stop(); const r = typedEl.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) type(); });
+    document.addEventListener('langchange', () => {
+      const wasActive = active; stop();
+      nodes.forEach(n => { n.__full = n.nodeValue; });   // the dictionary just rewrote the nodes: remember the new language, not the old run
+      const r = typedEl.getBoundingClientRect();
+      if (wasActive && r.top < innerHeight && r.bottom > 0) type();
+    });
   }
   applyLang(LANG);
 })();
