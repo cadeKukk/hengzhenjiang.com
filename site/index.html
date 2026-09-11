@@ -348,7 +348,10 @@
   /* ---------- field notes marquee ---------- */
   .notes{text-align:center;padding-inline:0;overflow:hidden}
   .notes .sub{margin-bottom:8px}
-  .marquee{position:relative;padding:18px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .marquee{position:relative;padding:18px 0;overflow:hidden}
+  .marquee::before,.marquee::after{content:"";position:absolute;top:0;bottom:0;width:7%;z-index:2;pointer-events:none}
+  .marquee::before{left:0;background:linear-gradient(90deg,var(--surface) 0%,rgba(245,245,242,0) 100%)}
+  .marquee::after{right:0;background:linear-gradient(270deg,var(--surface) 0%,rgba(245,245,242,0) 100%)}
   .track{display:flex;gap:24px;width:max-content;padding-inline:12px;animation:mq-left 75s linear infinite;will-change:transform}
   .marquee[data-dir="right"] .track{animation-name:mq-right;animation-duration:85s}
   @keyframes mq-left{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 12px))}}
@@ -365,7 +368,8 @@
   .note .card .imgwrap{overflow:hidden;border-radius:4px;aspect-ratio:4/3}
   .note .card .imgwrap img{width:100%;height:100%;object-fit:cover;aspect-ratio:auto;border-radius:0}
   @media (prefers-reduced-motion:reduce){
-    .marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+    .marquee{overflow-x:auto}
+    .marquee::before,.marquee::after{display:none}
     .track{animation:none;width:auto}
   }
 
@@ -542,7 +546,7 @@
   .cit.wide .cthumb{height:auto;aspect-ratio:16/9}
   .cthumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
   .cit:hover .cthumb img{transform:scale(1.03)}
-  .cthumb .play{position:absolute;left:50%;top:50%;width:48px;height:48px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(20,20,20,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .2s var(--ease),background .2s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .cthumb .play{position:absolute;left:50%;top:50%;width:48px;height:48px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(20,20,20,.78);display:grid;place-items:center;transition:transform .2s var(--ease),background .2s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
   .cthumb .play::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
   .cit:hover .play{transform:translate(-50%,-50%) scale(1.08);background:rgba(20,20,20,.86)}
   .cthumb.playing{cursor:default}
