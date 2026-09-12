@@ -9,6 +9,14 @@ The site is a single static HTML page, bilingual (Chinese by default, English on
 with no framework and no build step at runtime. A small Python script assembles the page
 from a template, a translation file and a handful of image lists.
 
+## Preview
+
+![Chinese home page with Duke Chapel artwork and the start of the timeline](docs/screenshots/home.png)
+
+[Open the site](https://hengzhen-jiang.vercel.app). Use the language toggle in the header to switch between Chinese and English, then scroll through the timeline and project sections.
+
+For a local demo, run `python3 -m http.server 8000 --directory site` and open `http://localhost:8000`. The committed build includes the images. This screenshot shows the local Chinese version at 1440 by 1000 on 2026-09-12.
+
 ## Layout of this repository
 
 ```
