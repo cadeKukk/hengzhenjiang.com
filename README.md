@@ -13,9 +13,13 @@ from a template, a translation file and a handful of image lists.
 
 ![Chinese home page with Duke Chapel artwork and the start of the timeline](docs/screenshots/home.png)
 
+![English home page: the name, a one-line introduction, "See my work" and "Get in touch" buttons over the pixel-art Duke Chapel](docs/screenshots/home-en.png)
+
+<img src="docs/screenshots/phone-zh.png" width="300" alt="Chinese home page on a 390-pixel-wide phone screen: header with language toggle, résumé menu and mail button, the hero, and the first education card in the timeline">
+
 [Open the site](https://hengzhen-jiang.vercel.app). Use the language toggle in the header to switch between Chinese and English, then scroll through the timeline and project sections.
 
-For a local demo, run `python3 -m http.server 8000 --directory site` and open `http://localhost:8000`. The committed build includes the images. This screenshot shows the local Chinese version at 1440 by 1000 on 2026-09-12.
+For a local demo, run `python3 -m http.server 8000 --directory site` and open `http://localhost:8000`. The committed build includes the images. The screenshots are of that local build: the Chinese desktop page at 1440 by 1000 (2026-09-12), the English desktop page at 1440 by 900 and the Chinese page on a 390 by 844 phone screen (both 2026-11-17).
 
 ## Layout of this repository
 
